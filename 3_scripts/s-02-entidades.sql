@@ -90,9 +90,7 @@ CREATE TABLE revision(
     REFERENCES clinica(centro_operativo_id),
     CONSTRAINT REVISION_mascota_id_fk 
     FOREIGN KEY (mascota_id)
-    REFERENCES mascota(mascota_id),
-    CONSTRAINT REVISION_mascota_revision_uk
-    UNIQUE (mascota_id, revision_id)
+    REFERENCES mascota(mascota_id)
 );
 
 CREATE TABLE seleccion(
@@ -107,7 +105,5 @@ CREATE TABLE seleccion(
     REFERENCES cliente(cliente_id),
     CONSTRAINT SELECCION_mascota_id_fk 
     FOREIGN KEY (mascota_id)
-    REFERENCES mascota(mascota_id),
-    CONSTRAINT SELECCION_mascota_cliente_uk
-    UNIQUE (mascota_id, cliente_id)
+    REFERENCES mascota(mascota_id)
 );
