@@ -17,7 +17,7 @@ CREATE TABLE GRADO_ACADEMICO(
 
 CREATE TABLE centro_operativo(
     centro_operativo_id number(10, 0) primary key,
-    codigo varchar2(5) not null unique,
+    codigo varchar2(5) not null,
     nombre varchar2(20) not null,
     direccion varchar2(80) not null,
     latitud number(10, 7) not null,
