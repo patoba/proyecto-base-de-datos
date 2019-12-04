@@ -2,7 +2,33 @@
 --@Fecha creación: 01/12/2019
 --@Descripción: DDL empleado para crear las tablas del caso de estudio
 
---CREAR AQUI EMPLEADO
+create table empleado (
+    empleado_id number(10,0)
+    constraint empleado_pk primary key,
+    nombre varchar2(20) not null,
+    apellido_paterno varchar2(20) not null,
+    apellido_materno varchar2(20) not null,
+    curp varchar2(18) not null,
+    email varchar2(40) not null,
+    sueldo_mensual number(8,2) not null,
+    fecha_ingreso date default sysdate not null,
+    es_administrativo number(1,0) not null,
+    es_veterinario number(1,0) not null,
+    es_gerente number(1,0) not null
+);
+
+create table cliente (
+    cliente_id number(10,0)
+    constraint cliente_pk primary key,
+    username varchar2(20) not null,
+    password varchar2(20) not null,
+    nombre varchar2(20) not null,
+    apellido_paterno varchar2(20) not null,
+    apellido_materno varchar2(20) not null,
+    direccion varchar2(40) not null,
+    ocupacion varchar2(40) not null,
+    constraint cliente_username_uk unique(username)
+);
 
 CREATE TABLE GRADO_ACADEMICO(
     grado_academico_id number(10, 0) primary key,
@@ -73,8 +99,88 @@ CREATE TABLE direccion_web(
     REFERENCES centro_refugio(centro_operativo_id)
 );
 
---  CREAR MASCOTA AQUI
+create table tipo_mascota (
+    tipo_mascota_id number(10,0)
+    constraint tipo_mascota_pk primary key,
+    nombre varchar2(20) not null,
+    subcategoria varchar2(20) not null,
+    nivel_cuidados number(1,0) not null,
+    constraint tipo_mascota_nivel_cuidados_ck check (
+        nivel_cuidados between 1 and 5
+    )
+);
 
+create table status_mascota (
+    status_mascota_id number(10,0)
+    constraint status_mascota_pk primary key,
+    clave varchar2(20) not null,
+    descripcion varchar2(40) not null,
+    constraint status_mascota_clave_uk unique(clave)
+)
+
+create table mascota (
+    mascota_id number(10,0)
+    constraint mascota_pk primary key,
+    folio varchar2(8) not null,
+    nombre varchar2(20) not null,
+    fecha_nacimiento date not null,
+    fecha_ingreso date default sysdate not null,
+    fecha_status default sysdate not null,
+    origen char(1) not null,
+    estado_salud varchar2(40) not null
+    descripcion_muerte varchar2(40),
+    foto blob not null,
+    centro_operativo_id number(10,0),
+    tipo_mascota_id number(10,0) not null,
+    status_mascota_id number(10,0) not null,
+    empleado_id number(10,0) not null,
+    padre_id number(10,0),
+    madre_id number(10,0),
+    cliente_id number(10,0),
+    donador_id number(10,0),
+    constraint mascota_folio_uk unique(folio)
+    constraint mascota_origen_ck check (
+        origen in ('D', 'A', 'C') -- D: Donada, A: Abandonada, C: Nacida en Cautiverio
+    ),
+    constraint mascota_centro_operativo_id_fk
+    foreign key (centro_operativo_id)
+    references centro_refugio(centro_operativo_id),
+    constraint mascota_tipo_mascota_id_fk
+    foreign key (tipo_mascota_id)
+    references tipo_mascota(tipo_mascota_id),
+    constraint mascota_status_mascota_id_fk
+    foreign key (status_mascota_id)
+    references status_mascota(status_mascota_id),
+    constraint mascota_empleado_id_fk
+    foreign key (empleado_id)
+    references empleado(empleado_id),
+    constraint mascota_padre_id_fk
+    foreign key (padre_id)
+    references mascota(mascota_id),
+    constraint mascota_madre_id_fk
+    foreign key (madre_id)
+    references mascota(mascota_id),
+    constraint mascota_cliente_id_fk
+    foreign key (cliente_id)
+    references cliente(cliente_id),
+    constraint mascota_donador_id_fk
+    foreign key (donador_id)
+    references cliente(cliente_id)
+);
+
+create table historico_status_mascota (
+    historico_status_mascota_id number(10,0)
+    constraint historico_status_mascota_pk primary key,
+    fecha_status date default sysdate not null,
+    mascota_id number(10,0) not null,
+    status_mascota_id number(10,0) not null,
+    constraint historico_mascota_id_fk 
+    foreign key (mascota_id)
+    references mascota(mascota_id),
+    constraint historico_status_mascota_id_fk
+    foreign key (status_mascota_id)
+    references status_mascota(status_mascota_id)
+);
 
 CREATE TABLE revision(
     revision_id number(10, 0) primary key,
