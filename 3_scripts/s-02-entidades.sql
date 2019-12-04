@@ -43,7 +43,7 @@ CREATE TABLE GRADO_ACADEMICO(
 
 CREATE TABLE centro_operativo(
     centro_operativo_id number(10, 0) primary key,
-    codigo varchar2(5) not null unique,
+    codigo varchar2(5) not null,
     nombre varchar2(20) not null,
     direccion varchar2(80) not null,
     latitud number(10, 7) not null,
@@ -196,9 +196,7 @@ CREATE TABLE revision(
     REFERENCES clinica(centro_operativo_id),
     CONSTRAINT REVISION_mascota_id_fk 
     FOREIGN KEY (mascota_id)
-    REFERENCES mascota(mascota_id),
-    CONSTRAINT REVISION_mascota_revision_uk
-    UNIQUE (mascota_id, revision_id)
+    REFERENCES mascota(mascota_id)
 );
 
 CREATE TABLE seleccion(
@@ -213,7 +211,5 @@ CREATE TABLE seleccion(
     REFERENCES cliente(cliente_id),
     CONSTRAINT SELECCION_mascota_id_fk 
     FOREIGN KEY (mascota_id)
-    REFERENCES mascota(mascota_id),
-    CONSTRAINT SELECCION_mascota_cliente_uk
-    UNIQUE (mascota_id, cliente_id)
+    REFERENCES mascota(mascota_id)
 );
