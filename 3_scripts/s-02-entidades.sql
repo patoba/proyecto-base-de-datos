@@ -14,7 +14,13 @@ create table empleado (
     fecha_ingreso date default sysdate not null,
     es_administrativo number(1,0) not null,
     es_veterinario number(1,0) not null,
-    es_gerente number(1,0) not null
+    es_gerente number(1,0) not null,
+    CONSTRAINT CO_es_administrativo_CHK
+    CHECK es_administrativo in (0, 1),
+    CONSTRAINT CO_es_veterinario_CHK
+    CHECK es_veterinario in (0, 1),
+    CONSTRAINT CO_es_gerente_CHK
+    CHECK es_gerente in (0, 1)
 );
 
 create table cliente (
@@ -26,8 +32,7 @@ create table cliente (
     apellido_paterno varchar2(20) not null,
     apellido_materno varchar2(20) not null,
     direccion varchar2(40) not null,
-    ocupacion varchar2(40) not null,
-    constraint cliente_username_uk unique(username)
+    ocupacion varchar2(40) not null
 );
 
 CREATE TABLE GRADO_ACADEMICO(
@@ -50,10 +55,22 @@ CREATE TABLE centro_operativo(
     longitud number(10, 7) not null,
     es_oficina number(1, 0) not null,
     es_clinica number(1, 0) not null,
+    es_centro_refugio number(1, 0) not null,
     empleado_id number(10, 0) not null,
     CONSTRAINT centro_operativo_empleado_id_fk 
     FOREIGN KEY (empleado_id)
-    REFERENCES empleado(empleado_id)
+    REFERENCES empleado(empleado_id),
+    CONSTRAINT CO_es_oficina_CHK
+    CHECK es_oficina in (0, 1),
+    CONSTRAINT CO_es_clinica_CHK
+    CHECK es_clinica in (0, 1),
+    CONSTRAINT CO_es_centro_refugio_CHK
+    CHECK es_centro_refugio in (0, 1),
+    CONSTRAINT CO_es_CHK
+    CHECK es_oficina = 1
+      AND es_clinica = 0
+      AND es_centro_refugio = 0
+     
 );
 
 CREATE TABLE oficina(
@@ -87,7 +104,9 @@ CREATE TABLE clinica(
     telefono_emergencia varchar2(10) not null,
     CONSTRAINT clinica_centro_operativo_id_fk 
     FOREIGN KEY (centro_operativo_id)
-    REFERENCES centro_operativo(centro_operativo_id)
+    REFERENCES centro_operativo(centro_operativo_id),
+    CONSTRAINT CLINICA_hora_CHK
+    CHECK hora_inicio < hora_fin
 );
 
 CREATE TABLE direccion_web(
@@ -114,8 +133,7 @@ create table status_mascota (
     status_mascota_id number(10,0)
     constraint status_mascota_pk primary key,
     clave varchar2(20) not null,
-    descripcion varchar2(40) not null,
-    constraint status_mascota_clave_uk unique(clave)
+    descripcion varchar2(40) not null
 )
 
 create table mascota (
@@ -138,9 +156,8 @@ create table mascota (
     madre_id number(10,0),
     cliente_id number(10,0),
     donador_id number(10,0),
-    constraint mascota_folio_uk unique(folio)
     constraint mascota_origen_ck check (
-        origen in ('D', 'A', 'C') -- D: Donada, A: Abandonada, C: Nacida en Cautiverio
+        origen in ('D', 'A', 'R') -- D: Donada, A: Abandonada, R: Nacida en Cautiverio
     ),
     constraint mascota_centro_operativo_id_fk
     foreign key (centro_operativo_id)
