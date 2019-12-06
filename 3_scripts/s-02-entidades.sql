@@ -100,8 +100,8 @@ CREATE TABLE clinica(
     centro_operativo_id number(10, 0) not null,
     hora_inicio date not null,
     hora_fin date not null,
-    telefono_atencion number(10, 0) not null,
-    telefono_emergencia varchar2(10) not null,
+    telefono_atencion varchar2(20) not null,
+    telefono_emergencia varchar2(20) not null,
     CONSTRAINT clinica_centro_operativo_id_fk 
     FOREIGN KEY (centro_operativo_id)
     REFERENCES centro_operativo(centro_operativo_id),
