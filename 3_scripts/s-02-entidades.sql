@@ -76,7 +76,7 @@ CREATE TABLE centro_operativo(
 CREATE TABLE oficina(
     centro_operativo_id number(10, 0) not null,
     rfc varchar2(13) not null,
-    firma_eletronica blob not null,
+    firma_eletronica blob not null default empty_blob(),
     responsable_legal varchar2(40),
     CONSTRAINT oficina_centro_operativo_id_fk 
     FOREIGN KEY (centro_operativo_id)
@@ -89,7 +89,7 @@ CREATE TABLE centro_refugio(
     numero_registro number(10, 0) not null, 
     capacidad number(3, 0) not null,
     lema varchar2(40) not null,
-    logo blob not null,
+    logo blob not null default empty_blob(),
     CONSTRAINT centro_refugio_centro_operativo_id_fk 
     FOREIGN KEY (centro_operativo_id)
     REFERENCES centro_operativo(centro_operativo_id)
@@ -147,7 +147,7 @@ create table mascota (
     origen char(1) not null,
     estado_salud varchar2(40) not null
     descripcion_muerte varchar2(40),
-    foto blob not null,
+    foto blob not null default empty_blob(),
     centro_operativo_id number(10,0),
     tipo_mascota_id number(10,0) not null,
     status_mascota_id number(10,0) not null,
@@ -222,11 +222,13 @@ CREATE TABLE seleccion(
     cliente_id number(10, 0) not null,
     fecha_seleccion date not null default sysdate,
     descripcion varchar2(40) not null,
-    es_ganador number(1, 0) not null,
+    es_ganador number(1, 0) not null default 0,
     CONSTRAINT SELECCION_cliente_id_fk 
     FOREIGN KEY (cliente_id)
     REFERENCES cliente(cliente_id),
     CONSTRAINT SELECCION_mascota_id_fk 
     FOREIGN KEY (mascota_id)
-    REFERENCES mascota(mascota_id)
+    REFERENCES mascota(mascota_id),
+    CONSTRAINT SELECCION_es_ganador_CHK
+    CHECK es_ganador in (0, 1)
 );
