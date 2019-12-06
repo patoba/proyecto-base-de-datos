@@ -28,11 +28,10 @@ ON mascota(folio);
 CREATE UNIQUE INDEX status_mascota_clave_uix
 ON status_mascota(clave);
 
-CREATE UNIQUE INDEX cliente_username_uix
-ON cliente(username);
-
 CREATE UNIQUE INDEX centro_operativo_uix
 ON centro_operativo(nombre);
+
+--no valida username igual usar trigger
 
 -- Indice unique compuesto
 
