@@ -3,7 +3,7 @@
 --@Descripción: Usuarios y roles del proyecto
 
 prompt Creando a los usuarios
-create user fb_proy_admin indentified by asdf quota unlimited on users;
+create user fb_proy_admin identified by asdf quota unlimited on users;
 
 create user fb_proy_invitado identified by asdf;
 

@@ -40,7 +40,7 @@ create table cliente (
 
 CREATE TABLE GRADO_ACADEMICO(
     grado_academico_id number(10, 0) primary key,
-    cedula_profesional number(10, 0) not null,
+    cedula_profesional varchar(10) not null,
     titulo varchar2(40) not null,
     fecha_titulacion date not null,
     empleado_id number(10, 0) not null,
