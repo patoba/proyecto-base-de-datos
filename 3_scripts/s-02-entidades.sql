@@ -9,6 +9,8 @@ create table empleado (
     apellido_paterno varchar2(20) not null,
     apellido_materno varchar2(20) not null,
     curp varchar2(18) not null,
+    username varchar2(20) not null,
+    contrasena varchar2(20) not null,
     email varchar2(40) not null,
     sueldo_mensual number(8,2) not null,
     fecha_ingreso date default sysdate not null,
@@ -27,7 +29,8 @@ create table cliente (
     cliente_id number(10,0)
     constraint cliente_pk primary key,
     username varchar2(20) not null,
-    password varchar2(20) not null,
+    contrasena varchar2(20) not null,
+    email varchar2(50) not null,
     nombre varchar2(20) not null,
     apellido_paterno varchar2(20) not null,
     apellido_materno varchar2(20) not null,
@@ -69,7 +72,9 @@ CREATE TABLE centro_operativo(
     CONSTRAINT CO_es_CHK
     CHECK es_oficina = 1
       AND es_clinica = 0
-      AND es_centro_refugio = 0
+      AND es_centro_refugio = 0,
+    CONSTRAINT CO_empleado_id_UK 
+    UNIQUE (empleado_id);
      
 );
 
@@ -156,9 +161,12 @@ create table mascota (
     madre_id number(10,0),
     cliente_id number(10,0),
     donador_id number(10,0),
-    constraint mascota_origen_ck check (
-        origen in ('D', 'A', 'R') -- D: Donada, A: Abandonada, R: Nacida en Cautiverio
-    ),
+    CONSTRAINT mascota_es_donada_ck
+    CHECK (origen = 'D' AND donador_id is not null),
+    CONSTRAINT mascota_es_abandonada_ck
+    CHECK (origen = 'A'),
+    CONSTRAINT mascota_es_nacida_en_cautiverio_ck
+    CHECK (origen = 'R' AND padre_id is not null AND madre_id is not null AND centro_operativo_id is not null),
     constraint mascota_centro_operativo_id_fk
     foreign key (centro_operativo_id)
     references centro_refugio(centro_operativo_id),
