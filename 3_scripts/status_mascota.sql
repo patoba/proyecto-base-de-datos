@@ -1,0 +1,7 @@
+insert into status_mascota (status_mascota_id, clave, descripcion) values (status_mascota_seq.nextval, 'EN_REFUGIO', 'La mascota se encuentra en un refugio.');
+insert into status_mascota (status_mascota_id, clave, descripcion) values (status_mascota_seq.nextval, 'DISPONIBLE_PARA_ADOPCION', 'La mascota se encuentra disponible para que la adpote un cliente.');
+insert into status_mascota (status_mascota_id, clave, descripcion) values (status_mascota_seq.nextval, 'ENFERMA', 'La mascota se encuentra grave de salud no esta disponible.');
+insert into status_mascota (status_mascota_id, clave, descripcion) values (status_mascota_seq.nextval, 'SOLICITADA_PARA_ADOPCION', 'La mascota ha sido elegida por un cliente.');
+insert into status_mascota (status_mascota_id, clave, descripcion) values (status_mascota_seq.nextval, 'ADOPCION', 'La mascota ha sido adoptada.');
+insert into status_mascota (status_mascota_id, clave, descripcion) values (status_mascota_seq.nextval, 'FALLECIDA_EN_REFUGIO', 'La mascota ha fallecido en un refugio.');
+insert into status_mascota (status_mascota_id, clave, descripcion) values (status_mascota_seq.nextval, 'FALLECIDA_EN_HOGAR', 'La mascota ha fallecido en el hogar de un cliente.');
