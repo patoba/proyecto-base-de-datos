@@ -48,6 +48,8 @@ begin
     end if;
    
 end;
+/
+SHOW ERRORS
 
 
 --v_existe_cliente number(1, 0);

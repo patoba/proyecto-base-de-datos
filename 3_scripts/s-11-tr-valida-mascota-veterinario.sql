@@ -16,3 +16,5 @@ begin
         raise_application_error(-20001, 'El empleado que esta insertando en mascota no es un veterinario');
     end if;
 end;
+/
+SHOW ERRORS

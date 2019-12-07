@@ -16,3 +16,5 @@ begin
         raise_application_error(-20000, 'El empleado que esta insertando en centro operativo no es un gerente');
     end if;
 end;
+/
+SHOW ERRORS

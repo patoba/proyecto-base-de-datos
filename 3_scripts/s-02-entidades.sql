@@ -92,7 +92,7 @@ CREATE TABLE centro_operativo(
       OR es_clinica != 0
       OR es_centro_refugio != 0),
     CONSTRAINT CO_empleado_id_UK 
-    UNIQUE (empleado_id),
+    UNIQUE (gerente_empleado_id),
     CONSTRAINT CO_5_exactos_CH
     CHECK (codigo like '_____')
 );
@@ -104,7 +104,7 @@ CREATE TABLE oficina(
     centro_operativo_id number(10, 0) 
     constraint oficina_pk primary key,
     rfc varchar2(13) not null,
-    firma_eletronica blob not null default empty_blob(),
+    firma_eletronica blob default empty_blob() not null,
     responsable_legal varchar2(40),
     CONSTRAINT O_rfc_CHK
     CHECK (rfc like '_____________'),
@@ -120,7 +120,7 @@ CREATE TABLE centro_refugio(
     numero_registro number(10, 0) not null, 
     capacidad number(3, 0) not null,
     lema varchar2(40) not null,
-    logo blob not null default empty_blob(),
+    logo blob default empty_blob() not null,
     CONSTRAINT centro_refugio_centro_operativo_id_fk 
     FOREIGN KEY (centro_operativo_id)
     REFERENCES centro_operativo(centro_operativo_id)
@@ -186,11 +186,11 @@ create table mascota (
     nombre varchar2(20) not null,
     fecha_nacimiento date not null,
     fecha_ingreso date default sysdate not null,
-    fecha_status default sysdate not null,
+    fecha_status date default sysdate not null,
     origen char(1) not null,
-    estado_salud varchar2(40) not null
+    estado_salud varchar2(40) not null,
     descripcion_muerte varchar2(40),
-    foto blob not null default empty_blob(),
+    foto blob default empty_blob() not null,
     centro_refugio_id number(10,0),
     tipo_mascota_id number(10,0) not null,
     status_mascota_id number(10,0) not null,
@@ -200,7 +200,7 @@ create table mascota (
     dueno_cliente_id number(10,0),
     donador_cliente_id number(10,0),
     CONSTRAINT MASCOTA_muerta_CHK
-    CHECK (status_mascota_id not in (6, 7) OR descripcion_muerte is not null)
+    CHECK (status_mascota_id not in (6, 7) OR descripcion_muerte is not null),
     CONSTRAINT MASCOTA_fechas_CHK
     CHECK (fecha_nacimiento <= fecha_ingreso AND fecha_ingreso <= fecha_status),
     CONSTRAINT mascota_origen_ck
@@ -257,12 +257,12 @@ CREATE TABLE revision(
     revision_id number(10, 0) primary key,
     mascota_id number(10, 0) not null,
     numero_revision number(10, 0) not null,
-    fecha_revision date not null default sysdate,
+    fecha_revision date default sysdate not null,
     costo number(7, 2) not null, 
     calificacion number(2, 0) not null,
     observaciones varchar2(40) not null,
     clinica_id number(10, 0) not null,
-    constraint tipo_mascota_nivel_cuidados_ck 
+    constraint revision_calificacion_ck 
     check (calificacion between 1 and 10),
     CONSTRAINT REVISION_clinica_id_fk 
     FOREIGN KEY (clinica_id)
@@ -278,9 +278,9 @@ CREATE TABLE seleccion(
     seleccion_id number(10, 0) primary key,
     mascota_id number(10, 0) not null,
     cliente_id number(10, 0) not null,
-    fecha_seleccion date not null default sysdate,
+    fecha_seleccion date default sysdate not null ,
     descripcion varchar2(40) not null,
-    es_ganador number(1, 0) not null default 0,
+    es_ganador number(1, 0) default 0 not null,
     CONSTRAINT SELECCION_cliente_id_fk 
     FOREIGN KEY (cliente_id)
     REFERENCES cliente(cliente_id),
