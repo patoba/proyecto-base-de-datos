@@ -10,7 +10,7 @@ declare
 begin
     select count(*) into v_es_gerente
     from empleado 
-    where gerente_empleado_id = :new.gerente_empleado_id
+    where empleado_id = :new.gerente_empleado_id
       and es_gerente = 1;
     if v_es_gerente = 0 then
         raise_application_error(-20000, 'El empleado que esta insertando en centro operativo no es un gerente');

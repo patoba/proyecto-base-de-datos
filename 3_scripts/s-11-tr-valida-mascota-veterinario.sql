@@ -10,7 +10,7 @@ declare
 begin
     select count(*) into v_es_veterinario
     from empleado 
-    where veterinario_empleado_id = :new.veterinario_empleado_id
+    where empleado_id = :new.veterinario_empleado_id
       and es_veterinario = 1;
     if v_es_veterinario = 0 then
         raise_application_error(-20001, 'El empleado que esta insertando en mascota no es un veterinario');
