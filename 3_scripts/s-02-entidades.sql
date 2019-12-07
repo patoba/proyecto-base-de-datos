@@ -5,6 +5,8 @@
 --actualizar mascotas quie posean dueno
 --quitar descripcion muerte a mascotas no muertas
 --default null
+
+prompt creando tabla empleado
 create table empleado (
     empleado_id number(10,0)
     constraint empleado_pk primary key,
@@ -21,14 +23,16 @@ create table empleado (
     es_veterinario number(1,0) not null,
     es_gerente number(1,0) not null,
     CONSTRAINT CO_es_administrativo_CHK
-    CHECK es_administrativo in (0, 1),
+    CHECK (es_administrativo in (0, 1)),
     CONSTRAINT CO_es_veterinario_CHK
-    CHECK es_veterinario in (0, 1),
+    CHECK (es_veterinario in (0, 1)),
     CONSTRAINT CO_es_gerente_CHK
-    CHECK es_gerente in (0, 1),
+    CHECK (es_gerente in (0, 1)),
     CONSTRAINT CO_existencia_CHK
     CHECK (es_administrativo = 1 OR es_veterinario = 1 OR es_gerente = 1)
 );
+
+prompt creando tabla cliente
 
 create table cliente (
     cliente_id number(10,0)
@@ -43,21 +47,28 @@ create table cliente (
     ocupacion varchar2(40) not null
 );
 
+prompt creando tabla grado_academico
+
 CREATE TABLE GRADO_ACADEMICO(
-    grado_academico_id number(10, 0) primary key,
+    grado_academico_id number(10, 0) 
+    constraint grado_academico_pk primary key,
     cedula_profesional varchar(10) not null,
     titulo varchar2(40) not null,
     fecha_titulacion date not null,
     empleado_id number(10, 0) not null,
     CONSTRAINT GA_cedula_profesional_CHK
-    CHECK (cedula_profesional like '________')
+    CHECK (cedula_profesional like '________'),
     CONSTRAINT grado_academico_empleado_id_fk 
     FOREIGN KEY (empleado_id)
     REFERENCES empleado(empleado_id)
 );
 
+prompt creando tabla centro_operativo
+
+
 CREATE TABLE centro_operativo(
-    centro_operativo_id number(10, 0) primary key,
+    centro_operativo_id number(10, 0) 
+    constraint centro_operativo_pk  primary key,
     codigo varchar2(5) not null,
     nombre varchar2(20) not null,
     direccion varchar2(80) not null,
@@ -71,11 +82,11 @@ CREATE TABLE centro_operativo(
     FOREIGN KEY (gerente_empleado_id)
     REFERENCES empleado(empleado_id),
     CONSTRAINT CO_es_oficina_CHK
-    CHECK es_oficina in (0, 1),
+    CHECK (es_oficina in (0, 1)),
     CONSTRAINT CO_es_clinica_CHK
-    CHECK es_clinica in (0, 1),
+    CHECK (es_clinica in (0, 1)),
     CONSTRAINT CO_es_centro_refugio_CHK
-    CHECK es_centro_refugio in (0, 1),
+    CHECK (es_centro_refugio in (0, 1)),
     CONSTRAINT CO_es_CHK
     CHECK (es_oficina != 1
       OR es_clinica != 0
@@ -86,8 +97,12 @@ CREATE TABLE centro_operativo(
     CHECK (codigo like '_____')
 );
 
+prompt creando tabla oficina
+
+
 CREATE TABLE oficina(
-    centro_operativo_id number(10, 0) not null,
+    centro_operativo_id number(10, 0) 
+    constraint oficina_pk primary key,
     rfc varchar2(13) not null,
     firma_eletronica blob not null default empty_blob(),
     responsable_legal varchar2(40),
@@ -100,7 +115,8 @@ CREATE TABLE oficina(
 
 
 CREATE TABLE centro_refugio(
-    centro_operativo_id number(10, 0) not null,
+    centro_operativo_id number(10, 0) 
+    constraint centro_refugio_pk primary key,
     numero_registro number(10, 0) not null, 
     capacidad number(3, 0) not null,
     lema varchar2(40) not null,
@@ -110,9 +126,11 @@ CREATE TABLE centro_refugio(
     REFERENCES centro_operativo(centro_operativo_id)
 );
 
+prompt creando tabla clinica
 
 CREATE TABLE clinica(
-    centro_operativo_id number(10, 0) not null,
+    centro_operativo_id number(10, 0) 
+    constraint clinica_pk primary key,
     hora_inicio date not null,
     hora_fin date not null,
     telefono_atencion varchar2(20) not null,
@@ -121,17 +139,23 @@ CREATE TABLE clinica(
     FOREIGN KEY (centro_operativo_id)
     REFERENCES centro_operativo(centro_operativo_id),
     CONSTRAINT CLINICA_hora_CHK
-    CHECK hora_inicio < hora_fin
+    CHECK (hora_inicio < hora_fin)
 );
 
+prompt creando tabla direccion_web
+
 CREATE TABLE direccion_web(
-    direccion_web_id number(10, 0) primary key,
-    url varchar2(40) not null,
+    direccion_web_id number(10, 0) 
+    constraint direccion_Web_pk primary key,
+    url varchar2(80) not null,
     centro_refugio_id number(10, 0) not null,
     CONSTRAINT direccion_web_centro_refugio_id_fk 
     FOREIGN KEY (centro_refugio_id)
     REFERENCES centro_refugio(centro_operativo_id)
 );
+
+
+prompt creando tabla tipo_mascota
 
 create table tipo_mascota (
     tipo_mascota_id number(10,0)
@@ -144,12 +168,16 @@ create table tipo_mascota (
     )
 );
 
+prompt creando tabla status_mascota
+
 create table status_mascota (
     status_mascota_id number(10,0)
     constraint status_mascota_pk primary key,
     clave varchar2(20) not null,
     descripcion varchar2(40) not null
-)
+);
+
+prompt creando tabla mascota
 
 create table mascota (
     mascota_id number(10,0)
@@ -161,16 +189,16 @@ create table mascota (
     fecha_status default sysdate not null,
     origen char(1) not null,
     estado_salud varchar2(40) not null
-    descripcion_muerte varchar2(40) default null,
+    descripcion_muerte varchar2(40),
     foto blob not null default empty_blob(),
     centro_refugio_id number(10,0),
     tipo_mascota_id number(10,0) not null,
     status_mascota_id number(10,0) not null,
     veterinario_empleado_id number(10,0) not null,
-    padre_mascota_id number(10,0) default null,
-    madre_mascota_id number(10,0) default null,
-    dueno_cliente_id number(10,0) default null,
-    donador_cliente_id number(10,0) default null,
+    padre_mascota_id number(10,0),
+    madre_mascota_id number(10,0),
+    dueno_cliente_id number(10,0),
+    donador_cliente_id number(10,0),
     CONSTRAINT MASCOTA_muerta_CHK
     CHECK (status_mascota_id not in (6, 7) OR descripcion_muerte is not null)
     CONSTRAINT MASCOTA_fechas_CHK
@@ -207,6 +235,8 @@ create table mascota (
     references cliente(cliente_id)
 );
 
+prompt creando tabla historico_status_mascota
+
 create table historico_status_mascota (
     historico_status_mascota_id number(10,0)
     constraint historico_status_mascota_pk primary key,
@@ -220,6 +250,8 @@ create table historico_status_mascota (
     foreign key (status_mascota_id)
     references status_mascota(status_mascota_id)
 );
+
+prompt creando tabla revision
 
 CREATE TABLE revision(
     revision_id number(10, 0) primary key,
@@ -240,6 +272,8 @@ CREATE TABLE revision(
     REFERENCES mascota(mascota_id)
 );
 
+prompt creando tabla seleccion
+
 CREATE TABLE seleccion(
     seleccion_id number(10, 0) primary key,
     mascota_id number(10, 0) not null,
@@ -254,5 +288,7 @@ CREATE TABLE seleccion(
     FOREIGN KEY (mascota_id)
     REFERENCES mascota(mascota_id),
     CONSTRAINT SELECCION_es_ganador_CHK
-    CHECK es_ganador in (0, 1)
+    CHECK (es_ganador in (0, 1))
 );
+
+prompt s-02-entidades.sql se ejecuto a la perfeccion

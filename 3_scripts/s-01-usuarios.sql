@@ -2,6 +2,7 @@
 --@Fecha creación: 01/12/2019
 --@Descripción: Usuarios y roles del proyecto
 
+
 prompt Creando a los usuarios
 create user fb_proy_admin identified by asdf quota unlimited on users;
 
@@ -21,3 +22,5 @@ prompt Asignando roles
 grant rol_admin to fb_proy_admin;
 
 grant rol_invitado to fb_proy_invitado;
+
+prompt s-01-usuarios.sql se ejecuto a la perfeccion

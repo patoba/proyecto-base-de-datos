@@ -2038,26 +2038,27 @@ insert into centro_operativo (centro_operativo_id, codigo, nombre, direccion, la
 
 PROMPT 'insertando datos oficina'
 
-insert into oficina (centro_operativo_id, rfc, firma_electronica, responsable_legal) values (2, '381-52-6960', lee_firma_electronica('firma_2.key'), 'Queenie Karpets');
-insert into oficina (centro_operativo_id, rfc, firma_electronica, responsable_legal) values (3, '785-36-6314', lee_firma_electronica('firma_3.key'), 'Brendis Wickmann');
-insert into oficina (centro_operativo_id, rfc, firma_electronica, responsable_legal) values (6, '755-41-0685', lee_firma_electronica('firma_6.key'), 'Marya Spurman');
-insert into oficina (centro_operativo_id, rfc, firma_electronica, responsable_legal) values (7, '248-23-8019', lee_firma_electronica('firma_7.key'), 'Celle Abate');
-insert into oficina (centro_operativo_id, rfc, firma_electronica, responsable_legal) values (8, '528-06-1970', lee_firma_electronica('firma_8.key'), 'Angie Hallbord');
-insert into oficina (centro_operativo_id, rfc, firma_electronica, responsable_legal) values (9, '644-18-5973', lee_firma_electronica('firma_9.key'), 'Zebulen Scougal');
-insert into oficina (centro_operativo_id, rfc, firma_electronica, responsable_legal) values (10, '391-25-2481', lee_firma_electronica('firma_10.key'), 'Sofia Domenc');
-insert into oficina (centro_operativo_id, rfc, firma_electronica, responsable_legal) values (12, '727-88-0295', lee_firma_electronica('firma_12.key'), 'Sonia Gallanders');
-insert into oficina (centro_operativo_id, rfc, firma_electronica, responsable_legal) values (18, '193-85-4341', lee_firma_electronica('firma_18.key'), 'Rozele McLennan');
-insert into oficina (centro_operativo_id, rfc, firma_electronica, responsable_legal) values (19, '560-53-0111', lee_firma_electronica('firma_19.key'), 'Devinne Rois');
-insert into oficina (centro_operativo_id, rfc, firma_electronica, responsable_legal) values (20, '769-84-5568', lee_firma_electronica('firma_20.key'), 'Devan Phare');
+--este lleva firma electronica blob
+insert into oficina (centro_operativo_id, rfc, responsable_legal) values (2, '381-52-6960', 'Queenie Karpets');
+insert into oficina (centro_operativo_id, rfc, responsable_legal) values (3, '785-36-6314', 'Brendis Wickmann');
+insert into oficina (centro_operativo_id, rfc, responsable_legal) values (6, '755-41-0685', 'Marya Spurman');
+insert into oficina (centro_operativo_id, rfc, responsable_legal) values (7, '248-23-8019', 'Celle Abate');
+insert into oficina (centro_operativo_id, rfc, responsable_legal) values (8, '528-06-1970', 'Angie Hallbord');
+insert into oficina (centro_operativo_id, rfc, responsable_legal) values (9, '644-18-5973', 'Zebulen Scougal');
+insert into oficina (centro_operativo_id, rfc, responsable_legal) values (10, '391-25-2481', 'Sofia Domenc');
+insert into oficina (centro_operativo_id, rfc, responsable_legal) values (12, '727-88-0295', 'Sonia Gallanders');
+insert into oficina (centro_operativo_id, rfc, responsable_legal) values (18, '193-85-4341', 'Rozele McLennan');
+insert into oficina (centro_operativo_id, rfc, responsable_legal) values (19, '560-53-0111', 'Devinne Rois');
+insert into oficina (centro_operativo_id, rfc, responsable_legal) values (20, '769-84-5568', 'Devan Phare');
 
 -- CENTRO REFUGIO
 
 PROMPT 'insertando datos refugio'
 
-insert into centro_refugio (centro_operativo_id, numero_registro, capacidad, lema, logo) values (4, 7974776319, 781, 'Secured', lee_imagen('logo_4.png'));
-insert into centro_refugio (centro_operativo_id, numero_registro, capacidad, lema, logo) values (11, 1036816544, 22, 'Exclusive', lee_imagen('logo_11.png'));
-insert into centro_refugio (centro_operativo_id, numero_registro, capacidad, lema, logo) values (14, 4922061820, 304, '6th generation', lee_imagen('logo_14.png'));
-insert into centro_refugio (centro_operativo_id, numero_registro, capacidad, lema, logo) values (15, 3339455803, 395, 'focus group', lee_imagen('logo_15.png'));
+insert into centro_refugio (centro_operativo_id, numero_registro, capacidad, lema) values (4, 7974776319, 781, 'Secured' );
+insert into centro_refugio (centro_operativo_id, numero_registro, capacidad, lema) values (11, 1036816544, 22, 'Exclusive' );
+insert into centro_refugio (centro_operativo_id, numero_registro, capacidad, lema) values (14, 4922061820, 304, '6th generation' );
+insert into centro_refugio (centro_operativo_id, numero_registro, capacidad, lema) values (15, 3339455803, 395, 'focus group' );
 
 -- CLINICA
 
@@ -2069,7 +2070,6 @@ insert into clinica (centro_operativo_id, hora_inicio, hora_fin, telefono_atenci
 insert into clinica (centro_operativo_id, hora_inicio, hora_fin, telefono_atencion, telefono_emergencia) values (14, to_date('07:37:59', 'hh24:mi:ss'), to_date('06:26:36', 'hh24:mi:ss'), '+1 (262) 592-2043', '+63 (381) 143-0914');
 insert into clinica (centro_operativo_id, hora_inicio, hora_fin, telefono_atencion, telefono_emergencia) values (16, to_date('05:42:30', 'hh24:mi:ss'), to_date('16:37:20', 'hh24:mi:ss'), '+62 (877) 644-6059', '+48 (636) 197-3164');
 insert into clinica (centro_operativo_id, hora_inicio, hora_fin, telefono_atencion, telefono_emergencia) values (17, to_date('16:26:25', 'hh24:mi:ss'), to_date('04:48:16', 'hh24:mi:ss'), '+355 (826) 409-1584', '+381 (414) 166-8423');
-
 
 -- DIRECCION WEB
 

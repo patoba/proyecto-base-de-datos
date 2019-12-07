@@ -5,6 +5,8 @@
 
 -- Indices Non-Unique
 
+prompt creando indices non-unique
+
 CREATE INDEX emp_empleados_ix
 ON empleado(nombre,apellido_paterno,apellido_materno);
 
@@ -15,6 +17,8 @@ CREATE INDEX empleado_email_ix
 ON empleado(email);
 
 -- Indices Unique
+
+prompt creando indices unique
 
 CREATE UNIQUE INDEX GRADO_ACADEMICO_cedula_profesional_uix
 ON GRADO_ACADEMICO(cedula_profesional);
@@ -35,6 +39,8 @@ ON centro_operativo(nombre);
 
 -- Indice unique compuesto
 
+prompt creando indice compuesto
+
 CREATE UNIQUE INDEX REVISION_mascota_revision_uix
 ON revision(mascota_id, revision_id)
 
@@ -44,6 +50,8 @@ ON mascota(mascota_id, cliente_id)
 
 -- Indice basado en funcion
 
+prompt creando indices basados en funcion
+
 CREATE index mascota_fecha_ingreso_ix
 ON mascota(extract(YEAR from fecha_ingreso));
 
@@ -52,3 +60,5 @@ ON mascota(extract(YEAR from fecha_ingreso));
 
 CREATE INDEX mascota_nombre_ix
 ON mascota(lower(nombre));
+
+prompt script s-06-indices.sql ejecutado perfectamente 
