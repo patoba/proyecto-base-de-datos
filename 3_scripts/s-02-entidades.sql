@@ -57,7 +57,7 @@ CREATE TABLE GRADO_ACADEMICO(
     fecha_titulacion date not null,
     empleado_id number(10, 0) not null,
     CONSTRAINT GA_cedula_profesional_CHK
-    CHECK (cedula_profesional like '________'),
+    CHECK (cedula_profesional like '__________'),
     CONSTRAINT grado_academico_empleado_id_fk 
     FOREIGN KEY (empleado_id)
     REFERENCES empleado(empleado_id)
@@ -70,7 +70,7 @@ CREATE TABLE centro_operativo(
     centro_operativo_id number(10, 0) 
     constraint centro_operativo_pk  primary key,
     codigo varchar2(5) not null,
-    nombre varchar2(20) not null,
+    nombre varchar2(60) not null,
     direccion varchar2(80) not null,
     latitud number(10, 7) not null,
     longitud number(10, 7) not null,
@@ -89,8 +89,8 @@ CREATE TABLE centro_operativo(
     CHECK (es_centro_refugio in (0, 1)),
     CONSTRAINT CO_es_CHK
     CHECK (es_oficina != 1
-      OR es_clinica != 0
-      OR es_centro_refugio != 0),
+      OR es_clinica = 0
+      OR es_centro_refugio = 0),
     CONSTRAINT CO_empleado_id_UK 
     UNIQUE (gerente_empleado_id),
     CONSTRAINT CO_5_exactos_CH
