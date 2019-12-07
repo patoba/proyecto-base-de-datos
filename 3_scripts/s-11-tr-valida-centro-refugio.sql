@@ -16,3 +16,5 @@ begin
         raise_application_error(-20003, 'El centro operativo que esta insertando en centro refugio no es un centro refugio');
     end if;
 end;
+/
+SHOW ERRORS

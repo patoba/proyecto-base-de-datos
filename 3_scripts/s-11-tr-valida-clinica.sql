@@ -16,3 +16,5 @@ begin
         raise_application_error(-20002, 'El centro operativo que esta insertando en clinica no es una clinica');
     end if;
 end;
+/
+SHOW ERRORS

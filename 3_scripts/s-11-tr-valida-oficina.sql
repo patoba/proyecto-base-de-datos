@@ -16,3 +16,5 @@ begin
         raise_application_error(-20004, 'El centro operativo que esta insertando en oficina no es una oficina');
     end if;
 end;
+/
+SHOW ERRORS
