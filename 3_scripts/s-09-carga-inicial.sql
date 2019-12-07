@@ -2030,10 +2030,6 @@ insert into centro_operativo (centro_operativo_id, codigo, nombre, direccion, la
 insert into centro_operativo (centro_operativo_id, codigo, nombre, direccion, latitud, longitud, es_oficina, es_clinica, es_centro_refugio, gerente_empleado_id) values (centro_operativo.nextval, 'PDFS1', 'PDF Solutions, Inc.', '4 Sunfield Way', 34.262709, 108.355232, 1, 0, 0, select gerente_empleado_id from empleado where es_gerente = 1 and gerente_empleado_id not in (select gerente_empleado_id from centro_operativo) ORDER BY RAND() fetch first row);
 insert into centro_operativo (centro_operativo_id, codigo, nombre, direccion, latitud, longitud, es_oficina, es_clinica, es_centro_refugio, gerente_empleado_id) values (centro_operativo.nextval, 'KCAP1', 'KCAP Financial, Inc.', '9 Hazelcrest Trail', 52.2876905, 45.3602833, 1, 0, 0, select gerente_empleado_id from empleado where es_gerente = 1 and gerente_empleado_id not in (select gerente_empleado_id from centro_operativo) ORDER BY RAND() fetch first row);
 
---oficina => 2,3,6,7,8,9,10, 12, 18, 19, 20
---centro_refugio => 4, 11, 14, 15
---clinica => 1, 5, 13, 14, 16, 17
-
 -- OFICINA
 
 PROMPT 'insertando datos oficina'
@@ -3086,16 +3082,6 @@ insert into cliente (cliente_id, username, constrasena, nombre, apellido_paterno
 insert into cliente (cliente_id, username, constrasena, nombre, apellido_paterno, apellido_materno, email, direccion, ocupacion) values (cliente_seq.nextval, 'lmerrellrq', 'RPNdh0h', 'Laurella', 'Wiggans', 'Merrell', 'lmerrellrq@facebook.com', '3 Union Place', 'Financial Analyst');
 insert into cliente (cliente_id, username, constrasena, nombre, apellido_paterno, apellido_materno, email, direccion, ocupacion) values (cliente_seq.nextval, 'ccaberarr', 'gnGjl1H7DoP', 'Carney', 'Bernardotte', 'Cabera', 'ccaberarr@macromedia.com', '29 Magdeline Park', 'Payment Adjustment Coordinator');
 
-
--- STATUS MASCOTA
--- 1 EN_REFUGIO
--- 2 DISPONIBLE_PARA_ADOPCION
--- 3 ENFERMA
--- 4 SOLICITADA_PARA_ADOPCION
--- 5 ADOPCION
--- 6 FALLECIDA_EN_REFUGIO
--- 7 FALLECIDA_EN_HOGAR
-
 prompt 'insertando datos mascota'
 
 insert into status_mascota (status_mascota_id, clave, descripcion) values (status_mascota_seq.nextval, 'EN_REFUGIO', 'La mascota se encuentra en un refugio.');
@@ -3141,14 +3127,10 @@ insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_ciuidados
 insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_ciuidados) values (tipo_mascota_seq.nextval, 'Primate', 'Black and white colobus', 5);
 insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_ciuidados) values (tipo_mascota_seq.nextval, 'Bird', 'Kiskadee, great', 1);
 
-
 -- MASCOTA
 
 prompt 'insertando datos mascota'
 
---d = donada
---r = refugio
---a = abandonada
 --puede fallar por empleado_id
 
 insert into mascota (mascota_id, folio, nombre, fecha_nacimiento, fecha_ingreso, fecha_status, origen, estado_salud, descripcion_muerte, foto, tipo_mascota_id, status_mascota_id, veterinario_empleado_id, centro_refugio_id, padre_mascota_id, madre_mascota_id, dueno_cliente_id, donador_cliente_id) values (mascota_seq.nextval, '8HSPnsy24lmm', 'Océanne', to_date('15/06/2016', 'dd/mm/yyyy'), to_date('17/05/2017', 'dd/mm/yyyy'), to_date('12/12/2018', 'dd/mm/yyyy'), 'A', 'Prolong labor NOS-deliv', 'ALUMINUM CATION', 'obtener_foto', 11, 5, 16, null, null, null, 642, null);

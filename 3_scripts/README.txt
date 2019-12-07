@@ -1,3 +1,26 @@
+Origen mascota:
+
+'A' => abandonada
+'D' => donada => donador_cliente_id
+'R' => nacida en refugio => padre_mascota_id, madre_mascota_id, centro_refugio_id
+
+INDICES DE CNETRO OPERATIVO 
+
+oficina => 2,3,6,7,8,9,10, 12, 18, 19, 20
+centro_refugio => 4, 11, 14, 15
+clinica => 1, 5, 13, 14, 16, 17
+
+STATUS MASCOTA 
+
+1 EN_REFUGIO
+2 DISPONIBLE_PARA_ADOPCION
+3 ENFERMA
+4 SOLICITADA_PARA_ADOPCION
+5 ADOPCION
+6 FALLECIDA_EN_REFUGIO
+7 FALLECIDA_EN_HOGAR
+
+
 CODIGO DE ERRORES:
 
 1)

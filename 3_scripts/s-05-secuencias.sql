@@ -31,7 +31,7 @@ create sequence tipo_mascota_seq
     increment by 1
     nominvalue
     nomaxvalue
-    cache 20
+    cache 30
     noorder
 ;
 
@@ -53,7 +53,7 @@ create sequence status_mascota_seq
     increment by 1
     nominvalue
     nomaxvalue
-    cache 20
+    cache 7
     noorder
 ;
 
