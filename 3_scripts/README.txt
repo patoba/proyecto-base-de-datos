@@ -19,3 +19,7 @@ CODIGO DE ERRORES:
 5)
 -20004 => s-11-tr-valida-oficina.sql 
     El centro operativo que esta insertando en oficina no es una oficina
+
+6)
+-20200 =>
+    Falla un trigger
