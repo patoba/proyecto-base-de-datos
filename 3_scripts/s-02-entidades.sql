@@ -2,6 +2,9 @@
 --@Fecha creación: 01/12/2019
 --@Descripción: DDL empleado para crear las tablas del caso de estudio
 
+--actualizar mascotas quie posean dueno
+--quitar descripcion muerte a mascotas no muertas
+--default null
 create table empleado (
     empleado_id number(10,0)
     constraint empleado_pk primary key,
@@ -46,6 +49,8 @@ CREATE TABLE GRADO_ACADEMICO(
     titulo varchar2(40) not null,
     fecha_titulacion date not null,
     empleado_id number(10, 0) not null,
+    CONSTRAINT GA_cedula_profesional_CHK
+    CHECK (cedula_profesional like '________')
     CONSTRAINT grado_academico_empleado_id_fk 
     FOREIGN KEY (empleado_id)
     REFERENCES empleado(empleado_id)
@@ -76,7 +81,9 @@ CREATE TABLE centro_operativo(
       OR es_clinica != 0
       OR es_centro_refugio != 0),
     CONSTRAINT CO_empleado_id_UK 
-    UNIQUE (empleado_id)
+    UNIQUE (empleado_id),
+    CONSTRAINT CO_5_exactos_CH
+    CHECK (codigo like '_____')
 );
 
 CREATE TABLE oficina(
@@ -84,6 +91,8 @@ CREATE TABLE oficina(
     rfc varchar2(13) not null,
     firma_eletronica blob not null default empty_blob(),
     responsable_legal varchar2(40),
+    CONSTRAINT O_rfc_CHK
+    CHECK (rfc like '_____________'),
     CONSTRAINT oficina_centro_operativo_id_fk 
     FOREIGN KEY (centro_operativo_id)
     REFERENCES centro_operativo(centro_operativo_id)
@@ -152,20 +161,26 @@ create table mascota (
     fecha_status default sysdate not null,
     origen char(1) not null,
     estado_salud varchar2(40) not null
-    descripcion_muerte varchar2(40),
+    descripcion_muerte varchar2(40) default null,
     foto blob not null default empty_blob(),
     centro_refugio_id number(10,0),
     tipo_mascota_id number(10,0) not null,
     status_mascota_id number(10,0) not null,
     veterinario_empleado_id number(10,0) not null,
-    padre_mascota_id number(10,0),
-    madre_mascota_id number(10,0),
-    dueno_cliente_id number(10,0),
-    donador_cliente_id number(10,0),
+    padre_mascota_id number(10,0) default null,
+    madre_mascota_id number(10,0) default null,
+    dueno_cliente_id number(10,0) default null,
+    donador_cliente_id number(10,0) default null,
+    CONSTRAINT MASCOTA_muerta_CHK
+    CHECK (status_mascota_id not in (6, 7) OR descripcion_muerte is not null)
+    CONSTRAINT MASCOTA_fechas_CHK
+    CHECK (fecha_nacimiento <= fecha_ingreso AND fecha_ingreso <= fecha_status),
     CONSTRAINT mascota_origen_ck
     CHECK (origen = 'D' AND donador_cliente_id is not null -- donada
             OR origen = 'A' --abandonada
             OR origen = 'R' AND padre_mascota_id is not null AND madre_mascota_id is not null AND centro_refugio_id is not null), --refugio
+    CONSTRAINT M_folio_CHK
+    CHECK (folio like '________'),
     constraint mascota_centro_refugio_id_fk
     foreign key (centro_refugio_id)
     references centro_refugio(centro_operativo_id),
@@ -215,6 +230,8 @@ CREATE TABLE revision(
     calificacion number(2, 0) not null,
     observaciones varchar2(40) not null,
     clinica_id number(10, 0) not null,
+    constraint tipo_mascota_nivel_cuidados_ck 
+    check (calificacion between 1 and 10),
     CONSTRAINT REVISION_clinica_id_fk 
     FOREIGN KEY (clinica_id)
     REFERENCES clinica(centro_operativo_id),

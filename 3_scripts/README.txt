@@ -20,6 +20,14 @@ CODIGO DE ERRORES:
 -20004 => s-11-tr-valida-oficina.sql 
     El centro operativo que esta insertando en oficina no es una oficina
 
+-20005 => s-11-tr-valida-seleccion.sql
+    El cliente posee mas de 5 mascotas
+
+-20006 => s-11-tr-valida-seleccion.sql
+    Han pasado mas de 15 dias de la ultima seleccion
+
+-20007 => s-11-tr-valida-seleccion.sql
+    Mascota no disponible para adopcion
 6)
 -20200 =>
     Falla un trigger

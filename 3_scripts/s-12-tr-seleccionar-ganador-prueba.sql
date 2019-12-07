@@ -55,7 +55,34 @@ where estudiante_id = 21
 and asignatura_id = 3
 and num_examen = 1;
 
-Prompt Validando  inserción en auditoria_extraordinario
+
+
+declare
+	v_codigo number;
+	v_mensaje varchar2(1000);
+begin
+
+	insert into estudiante_extraordinario(estudiante_id,num_examen,calificacion,asignatura_id)
+		values(1,1,null,1);
+	-- Si se llega a este punto, significa que el trigger no está funcionando, se lanza
+	--excepcion
+	raise_application_error(-20001,
+		' ERROR: Extraordinario con asignatura aprobada.'||
+		' El trigger no está funcionando correctamente');
+exception
+	when others then
+    v_codigo := sqlcode;
+    v_mensaje := sqlerrm;
+    dbms_output.put_line('Codigo:  ' || v_codigo);
+    dbms_output.put_line('Mensaje: ' || v_mensaje);
+    if v_codigo = -20010 then
+    	dbms_output.put_line('OK, prueba 2 Exitosa.');
+    else
+    	dbms_output.put_line('ERROR, se obtuvo excepción no esperada');
+    	raise;
+    end if;
+end;
+/
 
 declare
 	v_count number;
