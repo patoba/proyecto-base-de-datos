@@ -7,8 +7,8 @@ Origen mascota:
 INDICES DE CNETRO OPERATIVO 
 
 oficina => 2,3,6,7,8,9,10, 12, 18, 19, 20
-centro_refugio => 4, 11, 14, 15
-clinica => 1, 5, 13, 14, 16, 17
+clinica => 1, 4, 11, 14, 15, 17
+centro_refugio => 5, 13, 14, 16
 
 STATUS MASCOTA 
 

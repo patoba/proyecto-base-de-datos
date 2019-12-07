@@ -48,10 +48,10 @@ ON cliente(email);
 prompt creando indice compuesto
 
 CREATE UNIQUE INDEX REVISION_mascota_revision_uix
-ON revision(mascota_id, revision_id)
+ON revision(mascota_id, numero_revision);
 
 CREATE UNIQUE INDEX SELECCION_mascota_cliente_uix
-ON mascota(mascota_id, cliente_id)
+ON seleccion(mascota_id, cliente_id);
 
 
 -- Indice basado en funcion
