@@ -10,13 +10,13 @@ prompt creando tabla empleado
 create table empleado (
     empleado_id number(10,0)
     constraint empleado_pk primary key,
-    nombre varchar2(20) not null,
-    apellido_paterno varchar2(20) not null,
-    apellido_materno varchar2(20) not null,
+    nombre varchar2(40) not null,
+    apellido_paterno varchar2(30) not null,
+    apellido_materno varchar2(30) not null,
     curp varchar2(18) not null,
-    username varchar2(20) not null,
+    username varchar2(30) not null,
     contrasena varchar2(20) not null,
-    email varchar2(40) not null,
+    email varchar2(60) not null,
     sueldo_mensual number(8,2) not null,
     fecha_ingreso date default sysdate not null,
     es_administrativo number(1,0) not null,
@@ -37,7 +37,7 @@ prompt creando tabla cliente
 create table cliente (
     cliente_id number(10,0)
     constraint cliente_pk primary key,
-    username varchar2(20) not null,
+    username varchar2(30) not null,
     contrasena varchar2(20) not null,
     email varchar2(50) not null,
     nombre varchar2(20) not null,
@@ -53,7 +53,7 @@ CREATE TABLE GRADO_ACADEMICO(
     grado_academico_id number(10, 0) 
     constraint grado_academico_pk primary key,
     cedula_profesional varchar(10) not null,
-    titulo varchar2(40) not null,
+    titulo varchar2(60) not null,
     fecha_titulacion date not null,
     empleado_id number(10, 0) not null,
     CONSTRAINT GA_cedula_profesional_CHK
@@ -71,7 +71,7 @@ CREATE TABLE centro_operativo(
     constraint centro_operativo_pk  primary key,
     codigo varchar2(5) not null,
     nombre varchar2(60) not null,
-    direccion varchar2(80) not null,
+    direccion varchar2(120) not null,
     latitud number(10, 7) not null,
     longitud number(10, 7) not null,
     es_oficina number(1, 0) not null,
@@ -147,7 +147,7 @@ prompt creando tabla direccion_web
 CREATE TABLE direccion_web(
     direccion_web_id number(10, 0) 
     constraint direccion_Web_pk primary key,
-    url varchar2(80) not null,
+    url varchar2(150) not null,
     centro_refugio_id number(10, 0) not null,
     CONSTRAINT direccion_web_centro_refugio_id_fk 
     FOREIGN KEY (centro_refugio_id)
@@ -160,8 +160,8 @@ prompt creando tabla tipo_mascota
 create table tipo_mascota (
     tipo_mascota_id number(10,0)
     constraint tipo_mascota_pk primary key,
-    nombre varchar2(20) not null,
-    subcategoria varchar2(20) not null,
+    nombre varchar2(60) not null,
+    subcategoria varchar2(60) not null,
     nivel_cuidados number(1,0) not null,
     constraint tipo_mascota_nivel_cuidados_ck check (
         nivel_cuidados between 1 and 5
@@ -173,8 +173,8 @@ prompt creando tabla status_mascota
 create table status_mascota (
     status_mascota_id number(10,0)
     constraint status_mascota_pk primary key,
-    clave varchar2(20) not null,
-    descripcion varchar2(40) not null
+    clave varchar2(40) not null,
+    descripcion varchar2(80) not null
 );
 
 prompt creando tabla mascota
@@ -183,7 +183,7 @@ create table mascota (
     mascota_id number(10,0)
     constraint mascota_pk primary key,
     folio varchar2(8) not null,
-    nombre varchar2(20) not null,
+    nombre varchar2(60) not null,
     fecha_nacimiento date not null,
     fecha_ingreso date default sysdate not null,
     fecha_status date default sysdate not null,

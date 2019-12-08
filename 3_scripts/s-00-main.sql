@@ -47,8 +47,9 @@ prompt creando procedimientos
 
 prompt creando funciones
 
---@
+prompt cargando funcion complemento 
+@s-15-fx-complemento.sql
 
 prompt realizando carga inicial
 
---@s-09-carga-inicial.sql
+@s-09-carga-inicial.sql
