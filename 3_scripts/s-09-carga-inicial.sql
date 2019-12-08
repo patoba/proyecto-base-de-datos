@@ -1386,7 +1386,7 @@ insert into grado_academico (grado_academico_id, cedula_profesional, titulo, fec
 insert into grado_academico (grado_academico_id, cedula_profesional, titulo, fecha_titulacion, empleado_id) values (grado_academico_seq.nextval, '0000Y0L37Z', 'Business Systems Development Analyst', to_date('01/06/2012', 'dd/mm/yyyy'), 380);
 insert into grado_academico (grado_academico_id, cedula_profesional, titulo, fecha_titulacion, empleado_id) values (grado_academico_seq.nextval, '000089X3ZZ', 'Structural Analysis Engineer', to_date('01/09/1963', 'dd/mm/yyyy'), 381);
 insert into grado_academico (grado_academico_id, cedula_profesional, titulo, fecha_titulacion, empleado_id) values (grado_academico_seq.nextval, '000009R0ZZ', 'Statistician IV', to_date('01/08/2000', 'dd/mm/yyyy'), 382);
-insert into grado_academico (grado_academico_id, cedula_profesional, titulo, fecha_titulacion, empleado_id) values (grado_academico_seq.nextval, '0000TC60ZZ', 'Recruiting Manager', to_date('01/10/1968', 'dd/mm/yyyy'), 383);
+insert into grado_academico (grado_academico_id, cedula_profesional, titulo, fecha_titulacion, empleado_id) values (grado_academico_seq.nextval, '1000TC60ZZ', 'Recruiting Manager', to_date('01/10/1968', 'dd/mm/yyyy'), 383);
 insert into grado_academico (grado_academico_id, cedula_profesional, titulo, fecha_titulacion, empleado_id) values (grado_academico_seq.nextval, '0000RP1X3Z', 'Assistant Manager', to_date('01/03/1968', 'dd/mm/yyyy'), 384);
 insert into grado_academico (grado_academico_id, cedula_profesional, titulo, fecha_titulacion, empleado_id) values (grado_academico_seq.nextval, '0000LT30ZZ', 'Teacher', to_date('01/05/1962', 'dd/mm/yyyy'), 385);
 insert into grado_academico (grado_academico_id, cedula_profesional, titulo, fecha_titulacion, empleado_id) values (grado_academico_seq.nextval, '0000S5J4ZZ', 'Assistant Manager', to_date('01/04/2003', 'dd/mm/yyyy'), 386);
@@ -2060,12 +2060,12 @@ insert into centro_refugio (centro_operativo_id, numero_registro, capacidad, lem
 
 prompt 'insertando datos clinica'
 
-insert into clinica (centro_operativo_id, hora_inicio, hora_fin, telefono_atencion, telefono_emergencia) values (dame_centro_refugio_no_asignada(), to_date('09:32:45', 'hh24:mi:ss'), to_date('21:57:51', 'hh24:mi:ss'), '+257 (509) 877-2486', '+880 (966) 215-2469');
-insert into clinica (centro_operativo_id, hora_inicio, hora_fin, telefono_atencion, telefono_emergencia) values (dame_centro_refugio_no_asignada(), to_date('08:21:49', 'hh24:mi:ss'), to_date('10:08:17', 'hh24:mi:ss'), '+53 (233) 729-6836', '+86 (210) 665-8198');
-insert into clinica (centro_operativo_id, hora_inicio, hora_fin, telefono_atencion, telefono_emergencia) values (dame_centro_refugio_no_asignada(), to_date('02:13:40', 'hh24:mi:ss'), to_date('13:12:24', 'hh24:mi:ss'), '+30 (386) 994-2863', '+1 (860) 981-7007');
-insert into clinica (centro_operativo_id, hora_inicio, hora_fin, telefono_atencion, telefono_emergencia) values (dame_centro_refugio_no_asignada(), to_date('07:37:59', 'hh24:mi:ss'), to_date('08:26:36', 'hh24:mi:ss'), '+1 (262) 592-2043', '+63 (381) 143-0914');
-insert into clinica (centro_operativo_id, hora_inicio, hora_fin, telefono_atencion, telefono_emergencia) values (dame_centro_refugio_no_asignada(), to_date('05:42:30', 'hh24:mi:ss'), to_date('16:37:20', 'hh24:mi:ss'), '+62 (877) 644-6059', '+48 (636) 197-3164');
-insert into clinica (centro_operativo_id, hora_inicio, hora_fin, telefono_atencion, telefono_emergencia) values (dame_centro_refugio_no_asignada(), to_date('16:26:25', 'hh24:mi:ss'), to_date('22:48:16', 'hh24:mi:ss'), '+355 (826) 409-1584', '+381 (414) 166-8423');
+insert into clinica (centro_operativo_id, hora_inicio, hora_fin, telefono_atencion, telefono_emergencia) values (dame_clinica_no_asignada(), to_date('09:32:45', 'hh24:mi:ss'), to_date('21:57:51', 'hh24:mi:ss'), '+257 (509) 877-2486', '+880 (966) 215-2469');
+insert into clinica (centro_operativo_id, hora_inicio, hora_fin, telefono_atencion, telefono_emergencia) values (dame_clinica_no_asignada(), to_date('08:21:49', 'hh24:mi:ss'), to_date('10:08:17', 'hh24:mi:ss'), '+53 (233) 729-6836', '+86 (210) 665-8198');
+insert into clinica (centro_operativo_id, hora_inicio, hora_fin, telefono_atencion, telefono_emergencia) values (dame_clinica_no_asignada(), to_date('02:13:40', 'hh24:mi:ss'), to_date('13:12:24', 'hh24:mi:ss'), '+30 (386) 994-2863', '+1 (860) 981-7007');
+insert into clinica (centro_operativo_id, hora_inicio, hora_fin, telefono_atencion, telefono_emergencia) values (dame_clinica_no_asignada(), to_date('07:37:59', 'hh24:mi:ss'), to_date('08:26:36', 'hh24:mi:ss'), '+1 (262) 592-2043', '+63 (381) 143-0914');
+insert into clinica (centro_operativo_id, hora_inicio, hora_fin, telefono_atencion, telefono_emergencia) values (dame_clinica_no_asignada(), to_date('05:42:30', 'hh24:mi:ss'), to_date('16:37:20', 'hh24:mi:ss'), '+62 (877) 644-6059', '+48 (636) 197-3164');
+insert into clinica (centro_operativo_id, hora_inicio, hora_fin, telefono_atencion, telefono_emergencia) values (dame_clinica_no_asignada(), to_date('16:26:25', 'hh24:mi:ss'), to_date('22:48:16', 'hh24:mi:ss'), '+355 (826) 409-1584', '+381 (414) 166-8423');
 
 -- DIRECCION WEB
 
