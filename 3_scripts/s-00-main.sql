@@ -4,9 +4,63 @@
 
 prompt conectando como usuario sys
 
-connect sys/sys as sysdba
+connect sys/system as sysdba
 
-drop user FB_PROY_ADMIN cascade;
+prompt Elminando usuario administrador (en caso de que exista)
+declare
+    v_count number(1,0);
+begin
+  select count(*) into v_count
+  from dba_users
+  where username = 'FB_PROY_ADMIN';
+  if v_count > 0 then
+    dbms_output.put_line('Eliminando usuario administrador.');
+    execute immediate 'drop user FB_PROY_ADMIN cascade';
+  end if;
+end;
+/
+
+prompt Elminando usuario invitado (en caso de que exista)
+declare
+    v_count number(1,0);
+begin
+  select count(*) into v_count
+  from dba_users
+  where username = 'FB_PROY_INVITADO';
+  if v_count > 0 then
+    dbms_output.put_line('Eliminando usuario invitado.');
+    execute immediate 'drop user FB_PROY_INVITADO cascade';
+  end if;
+end;
+/
+
+prompt Elminando rol administrador (en caso de que exista)
+declare
+    v_count number(1,0);
+begin
+  select count(*) into v_count
+  from dba_roles
+  where role = 'ROL_ADMIN';
+  if v_count > 0 then
+    dbms_output.put_line('Eliminando role admin.');
+    execute immediate 'drop role ROL_ADMIN';
+  end if;
+end;
+/
+
+prompt Elminando rol invitado (en caso de que exista)
+declare
+    v_count number(1,0);
+begin
+  select count(*) into v_count
+  from dba_roles
+  where role = 'ROL_INVITADO';
+  if v_count > 0 then
+    dbms_output.put_line('Eliminando role invitado.');
+    execute immediate 'drop role ROL_INVITADO';
+  end if;
+end;
+/
 
 prompt creando usuarios
 

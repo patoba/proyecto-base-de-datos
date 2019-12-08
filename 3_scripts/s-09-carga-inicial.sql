@@ -2079,6 +2079,7 @@ insert into direccion_web (direccion_web_id, url, centro_refugio_id) values (dir
 insert into direccion_web (direccion_web_id, url, centro_refugio_id) values (direccion_web_seq.nextval, 'http://bing.com/dui.jsp', (select centro_operativo_id from centro_refugi  ORDER BY dbms_random.value fetch next 1 rows only));
 insert into direccion_web (direccion_web_id, url, centro_refugio_id) values (direccion_web_seq.nextval, 'http://csmonitor.com/consectetuer/eget/rutrum/at.json', (select centro_operativo_id from centro_refugi  ORDER BY dbms_random.value fetch next 1 rows only));
 insert into direccion_web (direccion_web_id, url, centro_refugio_id) values (direccion_web_seq.nextval, 'http://rediff.com/et/magnis/dis.png', (select centro_operativo_id from centro_refugi  ORDER BY dbms_random.value fetch next 1 rows only));
+
 -- CLIENTE
 
 prompt 'insertando datos cliente'
