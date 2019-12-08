@@ -4,9 +4,9 @@
 
 prompt conectando como usuario sys
 
-connect sys/system as sysdba
+connect sys/sys as sysdba
 
-prompt Elminando usuario administrador (en caso de que exista)
+prompt Verificando usuario administrador
 declare
     v_count number(1,0);
 begin
@@ -103,6 +103,22 @@ prompt creando funciones
 
 prompt cargando funcion complemento 
 @s-15-fx-complemento.sql
+prompt funcion dame mascota
+@s-15-fx-dame-mascota.sql
+prompt funcion dame cliente
+@s-15-fx-dame-cliente.sql
+prompt funcion dame veterinario
+@s-15-fx-dame-veterinario.sql
+prompt funcion dame centro refugio
+@s-15-fx-dame-centro-refugio.sql
+prompt funcion dame_centro_refugio_no_asignada
+@s-15-fx-dame-centro-refugio-no-asignado.sql
+prompt funcion dame_clinica_no_asignada
+@s-15-fx-dame-clinica-no-asignado.sql
+prompt funcion dame_gerente_sin_centro_operativo
+@s-15-fx-dame-gerente-sin-centro-operativo.sql
+prompt funcion dame_oficina_no_asignada
+@s-15-fx-dame-oficina-no-asignada.sql
 
 prompt realizando carga inicial
 
