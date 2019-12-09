@@ -36,7 +36,7 @@ reject limit unlimited;
 
 !mkdir -p /tmp/bases
 !chmod 777 /tmp/bases
-!cp cliente_ext.csv /tmp/bases
+!cp datos/cliente_ext.csv /tmp/bases
 
 col username format a20
 col email format a20
