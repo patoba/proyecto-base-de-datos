@@ -11,12 +11,12 @@ create user fb_proy_invitado identified by asdf;
 prompt Creando los roles
 create role rol_admin;
 
-grant create session, create synonym, create view, create table,
+grant create session, create synonym, create public synonym, create view, create table,
 create sequence, create trigger, create procedure to rol_admin;
 
 create role rol_invitado;
 
-grant create session to rol_invitado;
+grant create session, create synonym to rol_invitado;
 
 prompt Asignando roles
 grant rol_admin to fb_proy_admin;

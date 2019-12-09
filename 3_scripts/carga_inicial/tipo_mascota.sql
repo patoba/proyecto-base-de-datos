@@ -3,11 +3,11 @@
 insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_ciuidados) values (tipo_mascota_seq.nextval, 'Langur', 'Gray', 2);
 insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_ciuidados) values (tipo_mascota_seq.nextval, 'Cow', 'Scottish Highland', 3);
 insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_ciuidados) values (tipo_mascota_seq.nextval, 'Bird','Red-shouldered glossy starling', 4);
-insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_ciuidados) values (tipo_mascota_seq.nextval, 'Gecko', 'Ring-Tailed', 5);
+insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_ciuidados) values (tipo_mascota_seq.nextval, 'Reptil', 'Gecko Ring-Tailed', 5);
 insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_ciuidados) values (tipo_mascota_seq.nextval, 'Otter', 'Asian small-clawed', 1);
 insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_ciuidados) values (tipo_mascota_seq.nextval, 'Jackal', 'Black-backed', 2);
 insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_ciuidados) values (tipo_mascota_seq.nextval, 'Reptil', 'Varanus Lizard', 3);
-insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_ciuidados) values (tipo_mascota_seq.nextval, 'Duck', 'Mountain', 4);
+insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_ciuidados) values (tipo_mascota_seq.nextval, 'Dog', 'Alaskan Malamute ', 4);
 insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_ciuidados) values (tipo_mascota_seq.nextval, 'Bird', 'Vulture King', 5);
 insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_ciuidados) values (tipo_mascota_seq.nextval, 'Bird' ,'Pintail, bahama', 1);
 insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_ciuidados) values (tipo_mascota_seq.nextval, 'Reptil','Monitor, white-throated', 2);
@@ -17,9 +17,9 @@ insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_ciuidados
 insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_ciuidados) values (tipo_mascota_seq.nextval, 'Primate', 'Colobus, white-mantled', 1);
 insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_ciuidados) values (tipo_mascota_seq.nextval, 'Bird', 'Goose, spur-winged', 2);
 insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_ciuidados) values (tipo_mascota_seq.nextval, 'Reptil', 'Burmese black mountain tortoise', 3);
-insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_ciuidados) values (tipo_mascota_seq.nextval, 'Hyena', 'Striped', 4);
+insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_ciuidados) values (tipo_mascota_seq.nextval, 'Hyena', 'Striped', 1);
 insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_ciuidados) values (tipo_mascota_seq.nextval, 'Bird', 'Roadrunner, greater', 5);
-insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_ciuidados) values (tipo_mascota_seq.nextval, 'Bird', 'Secretary bird', 1);
+insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_ciuidados) values (tipo_mascota_seq.nextval, 'Bird', 'Secretary bird', 4);
 insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_ciuidados) values (tipo_mascota_seq.nextval, 'Kinkajou', 'Martucha', 2);
 insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_ciuidados) values (tipo_mascota_seq.nextval, 'Kangaroo', 'Brush-tailed rat', 3);
 insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_ciuidados) values (tipo_mascota_seq.nextval, 'Ringtail', 'Common', 4);
@@ -28,5 +28,5 @@ insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_ciuidados
 insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_ciuidados) values (tipo_mascota_seq.nextval, 'Bird', 'Starling, cape', 2);
 insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_ciuidados) values (tipo_mascota_seq.nextval, 'Wild boar', 'Common',3);
 insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_ciuidados) values (tipo_mascota_seq.nextval, 'Fish', 'Catfish, blue', 4);
-insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_ciuidados) values (tipo_mascota_seq.nextval, 'Primate', 'Black and white colobus', 5);
+insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_ciuidados) values (tipo_mascota_seq.nextval, 'Fish', 'Swordfish', 5);
 insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_ciuidados) values (tipo_mascota_seq.nextval, 'Bird', 'Kiskadee, great', 1);

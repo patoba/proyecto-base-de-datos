@@ -2,6 +2,7 @@
 --@Fecha creación: 03/12/2019
 --@Descripción: Sínonimos publicos y privados
 
+prompt creando sinonimos de usuario admin
 -- Sinónimo para ver los centros operativos
 create or replace public synonym centro for centro_operativo;
 
@@ -11,6 +12,7 @@ create or replace public synonym status for status_mascota;
 -- Sinónimo para el historico 
 create or replace public synonym historico for historico_status_mascota;
 
+prompt otorgando permisos sobre tablas a usuario invitado
 -- Permisos para consultar tablas al usuario invitado
 grant select on clinica to fb_proy_invitado;
 
@@ -20,6 +22,7 @@ grant select on seleccion to fb_proy_invitado;
 
 connect fb_proy_invitado/asdf
 
+prompt creando sinonimos del usuario invitado
 -- Sinónimo para ver las clínicos (Para que puedan llevar a sus mascota a consulta)
 create or replace synonym clinica for fb_proy_admin.clinica;
 
@@ -32,6 +35,7 @@ create or replace synonym seleccion for fb_proy_admin.mascota;
 -- Creación de sinónimos privados formado por dos caracteres
 connect fb_proy_admin/asdf;
 
+prompt creando sinonimos para todas las tablas
 set serveroutput on
 declare
     v_sql varchar2(2000);
