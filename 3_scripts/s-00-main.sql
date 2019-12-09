@@ -4,12 +4,13 @@
 
 prompt conectando como usuario sys
 
-connect sys/sys as sysdba
+connect sys/system as sysdba
 
 !mkdir /tmp/bd
 !mkdir /tmp/server
 
 !chmod 777 /tmp/bd
+!chmod 777 /tmp/server
 
 !cp ./datos/firmas/office* /tmp/bd
 !cp ./datos/logos/cr* /tmp/bd
