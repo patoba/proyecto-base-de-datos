@@ -7,7 +7,7 @@ create or replace procedure p_expediente_a_archivo(
 ) is
     cursor cur_datos_revision is
     SELECT r.numero_revision,m.folio,m.nombre as nombre_mascota,m.fecha_nacimiento,
-       m.fecha_ingreso,m.origen,m.descripcion_muerte,
+       m.fecha_ingreso,m.origen,
        tm.nombre as nombre_tipo_mascota, sm.clave,
        co.nombre as nombre_clinica, c.telefono_atencion,r.fecha_revision,r.costo,
        r.calificacion,r.estado_salud,r.observaciones
