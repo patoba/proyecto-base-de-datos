@@ -72,6 +72,14 @@ prompt creando entidades
 
 @s-02-entidades.sql
 
+prompt cargando tablas temporales
+
+@s-03-tablas-temporales.sql
+
+prompt cargando tablas externas
+
+@s-04-tablas-externas.sql
+
 prompt creando secuencias
 
 @s-05-secuencias.sql
@@ -88,6 +96,10 @@ prompt creando vistas
 
 prompt creando triggers
 
+prompt creando trigger borra_cliente
+@s-11-tr-borra-cliente.sql
+prompt creando trigger respaldo_seleccion
+@s-11-tr-respaldo-seleccion.sql
 prompt creando trigger valida-centro-refugio
 @s-11-tr-valida-centro-refugio.sql
 prompt creando trigger valida-clinica
@@ -104,12 +116,16 @@ prompt creando trigger respaldo seleccion
 @s-11-tr-respaldo-seleccion.sql
 
 prompt creando procedimientos
-
+prompt entrar seleccion
+@s-13-p-entrar-seleccion.sql
+prompt expediente a archivo
+@s-13-p-expediente-a-archivo.sql
+prompt macota va al medico
 @s-13-p-mascota-va-al-medico.sql
 
 prompt creando funciones
 
-prompt cargando funcion
+prompt cargando funcion_lee_archivo
 @s-15-fx-lee-archivo.sql
 prompt cargando funcion complemento 
 @s-15-fx-complemento.sql
