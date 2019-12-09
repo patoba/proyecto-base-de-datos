@@ -34,4 +34,8 @@ grant read,write on directory tmp_dir to fb_proy_admin;
 Prompt creando objeto DATA_LOGOS
 create or replace directory data_server as '/tmp/server/';
 grant read,write on directory data_server to fb_proy_admin;
+
+CREATE OR REPLACE DIRECTORY CTEST AS '/tmp/salida';
+GRANT READ,write ON DIRECTORY CTEST TO fb_proy_admin; 
+
 prompt s-01-usuarios.sql se ejecuto a la perfeccion

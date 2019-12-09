@@ -53,6 +53,10 @@ BEGIN
                 
                 DELETE FROM seleccion 
                 WHERE mascota_id = v_mascota_id;
+
+                update mascota
+                set status_mascota_id = 5
+                where mascota_id = v_mascota_id;
             END IF;
          else
             null;

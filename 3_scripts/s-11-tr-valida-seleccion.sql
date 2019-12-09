@@ -12,11 +12,10 @@ declare
     v_mascota_disponible_para_adopcion number(1, 0);
     v_status_disponible_para_adopcion status_mascota.status_mascota_id%type;
 begin
-    v_status_disponible_para_adopcion := 4;
     select count(*) into v_mascota_disponible_para_adopcion
     from mascota 
     where mascota_id = :new.mascota_id
-      and status_mascota_id = v_status_disponible_para_adopcion;
+      and status_mascota_id in (2, 4);
     if v_mascota_disponible_para_adopcion < 1 then 
         raise_application_error(-20007, 'La mascota no esta disponible para adopcion');
     end if;
