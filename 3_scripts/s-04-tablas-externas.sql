@@ -38,12 +38,12 @@ reject limit unlimited;
 !chmod 777 /tmp/bases
 !cp datos/cliente_ext.csv /tmp/bases
 
-col username format a20
-col email format a20
-col nombre format a20
-col apellido_paterno format a20
-col apellido_materno format a20
-col direccion format a20
-col ocupacion format a20
+-- col username format a20
+-- col email format a20
+-- col nombre format a20
+-- col apellido_paterno format a20
+-- col apellido_materno format a20
+-- col direccion format a20
+-- col ocupacion format a20
 
-select * from cliente_ext;
+--select * from cliente_ext;
