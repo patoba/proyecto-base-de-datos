@@ -6,6 +6,15 @@ prompt conectando como usuario sys
 
 connect sys/system as sysdba
 
+!mkdir /tmp/bd
+!mkdir /tmp/server
+
+!chmod 777 /tmp/bd
+!chmod 777 /tmp/server
+
+!cp ./datos/firmas/office* /tmp/bd
+!cp ./datos/logos/cr* /tmp/bd
+
 prompt Verificando usuario administrador
 declare
     v_count number(1,0);
@@ -71,10 +80,6 @@ connect fb_proy_admin/asdf;
 prompt creando entidades
 
 @s-02-entidades.sql
-
-prompt crenado tablas temporales
-
-@s-03-tablas-temporales.sql
 
 prompt creando tablas_externas
 @s-04-tablas-externas.sql
@@ -155,3 +160,7 @@ prompt cargando triggers para guardar lob en servidor
 prompt realizando carga inicial
 
 @s-09-carga-inicial.sql
+
+prompt creando tablas temporales
+
+@s-03-tablas-temporales.sql

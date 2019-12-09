@@ -2,6 +2,14 @@
 --@Fecha creación: 08/12/2019
 --@Descripción: Ejecuta los scripts importantes del proyecto
 
+-- Para mejorar el desempeño se ha creado la tabla temporal revision mascota, esta muestra 
+-- las mascotas y las revisiones asociada a estas, se quiere mostrar tambien el nombre del
+-- veterinario de cabecera. Utiliza sintaxis anterior.
+select rm.numero_revision, rm.nombre_clinica, rm.nombre_mascota, e.nombre as veterinario,
+    rm.estado_salud, rm.observaciones
+from revision_mascota rm, empleado e
+where rm.veterinario_empleado_id = e.empleado_id;
+
 -- Mostrar el nombre, fecha_nacimiento, nombre del padre, nombre de la madre, fecha_status, clave, descripcion muerte de las mascotas
 -- (MUestra todas las mascotas que nacieron en un refugio y fallecieron)
 select m.nombre, m.fecha_nacimiento, p.nombre as nombre_padre, ma.nombre as nombre_madre, m.fecha_status, sm.clave, m.descripcion_muerte
@@ -48,7 +56,8 @@ natural join empleado e
 join centro co
 on empleado_id = co.gerente_empleado_id
 natural join centro_refugio cr
-natural join direccion_web dw
+join direccion_web dw
+on dw.centro_refugio_id = centro_operativo_id
 where co.es_centro_refugio = 1
 and co.es_clinica = 1;
 
@@ -62,6 +71,4 @@ from (
     from cliente
 )
 where upper(ocupacion) like '%SALES%';
-
-select * from revision_mascota;
 

@@ -7,7 +7,7 @@ CREATE GLOBAL TEMPORARY TABLE revision_mascota
 ON COMMIT PRESERVE ROWS
 AS
 SELECT r.numero_revision,m.folio,m.nombre as nombre_mascota,m.fecha_nacimiento,
-       m.fecha_ingreso,m.origen,m.descripcion_muerte,
+       m.fecha_ingreso,m.origen,m.descripcion_muerte, m.veterinario_empleado_id,
        tm.nombre as nombre_tipo_mascota, sm.clave,
        co.nombre as nombre_clinica, c.telefono_atencion,r.fecha_revision,r.costo,
        r.calificacion,r.estado_salud,r.observaciones
