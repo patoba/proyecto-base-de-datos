@@ -5,11 +5,11 @@
 
 -- Crearemos una vista para ver tanto a los clientes como a los empleados sin su contrasena
 create or replace view v_usuarios (
-    nombre, apellido_paterno, apellido_materno, email
-) as select e.nombre, e.apellido_paterno, e.apellido_materno, e.email
+    username, nombre, apellido_paterno, apellido_materno, email
+) as select e.username, e.nombre, e.apellido_paterno, e.apellido_materno, e.email
 from empleado e
 union
-select c.nombre, c.apellido_paterno, c.apellido_materno, c.email
+select c.username, c.nombre, c.apellido_paterno, c.apellido_materno, c.email
 from cliente c;
 
 -- Vista que muestra las mascotas que estan disponibles para adopción

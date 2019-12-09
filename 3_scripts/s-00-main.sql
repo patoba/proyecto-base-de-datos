@@ -4,7 +4,7 @@
 
 prompt conectando como usuario sys
 
-connect sys/sys as sysdba
+connect sys/system as sysdba
 
 prompt Verificando usuario administrador
 declare
@@ -71,6 +71,13 @@ connect fb_proy_admin/asdf;
 prompt creando entidades
 
 @s-02-entidades.sql
+
+prompt crenado tablas temporales
+
+@s-03-tablas-temporales.sql
+
+prompt creando tablas_externas
+@s-04-tablas-externas.sql
 
 prompt creando secuencias
 
