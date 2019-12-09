@@ -3104,7 +3104,7 @@ insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_cuidados)
 insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_cuidados) values (tipo_mascota_seq.nextval, 'Otter', 'Asian small-clawed', 1);
 insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_cuidados) values (tipo_mascota_seq.nextval, 'Jackal', 'Black-backed', 2);
 insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_cuidados) values (tipo_mascota_seq.nextval, 'Reptil', 'Varanus Lizard', 3);
-insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_cuidados) values (tipo_mascota_seq.nextval, 'Duck', 'Mountain', 4);
+insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_cuidados) values (tipo_mascota_seq.nextval, 'Dog', 'Alaskan Malamute', 4);
 insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_cuidados) values (tipo_mascota_seq.nextval, 'Bird', 'Vulture King', 5);
 insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_cuidados) values (tipo_mascota_seq.nextval, 'Bird' ,'Pintail, bahama', 1);
 insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_cuidados) values (tipo_mascota_seq.nextval, 'Reptil','Monitor, white-throated', 2);
@@ -3125,7 +3125,7 @@ insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_cuidados)
 insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_cuidados) values (tipo_mascota_seq.nextval, 'Bird', 'Starling, cape', 2);
 insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_cuidados) values (tipo_mascota_seq.nextval, 'Wild boar', 'Common',3);
 insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_cuidados) values (tipo_mascota_seq.nextval, 'Fish', 'Catfish, blue', 4);
-insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_cuidados) values (tipo_mascota_seq.nextval, 'Primate', 'Black and white colobus', 5);
+insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_cuidados) values (tipo_mascota_seq.nextval, 'Fish', 'Swordfish', 5);
 insert into tipo_mascota (tipo_mascota_id, nombre, subcategoria, nivel_cuidados) values (tipo_mascota_seq.nextval, 'Bird', 'Kiskadee, great', 1);
 
 -- MASCOTA
@@ -3475,13 +3475,11 @@ insert into seleccion (seleccion_id, cliente_id, mascota_id, fecha_seleccion, es
 insert into seleccion (seleccion_id, cliente_id, mascota_id, fecha_seleccion, es_ganador, descripcion) values (seleccion_seq.nextval, dame_cliente(), 62, (select fecha_status from mascota where mascota_id=62), 0, 'Es buena persona.');
 
 -- REVISION
-insert into revision (revision_id, mascota_id, numero_revision, fecha_revision, costo, calificacion, observaciones, estado_salud, clinica_id) values ();
-insert into revision (revision_id, mascota_id, numero_revision, fecha_revision, costo, calificacion, observaciones, estado_salud, clinica_id) values ();
-insert into revision (revision_id, mascota_id, numero_revision, fecha_revision, costo, calificacion, observaciones, estado_salud, clinica_id) values ();
-insert into revision (revision_id, mascota_id, numero_revision, fecha_revision, costo, calificacion, observaciones, estado_salud, clinica_id) values ();
-insert into revision (revision_id, mascota_id, numero_revision, fecha_revision, costo, calificacion, observaciones, estado_salud, clinica_id) values ();
-insert into revision (revision_id, mascota_id, numero_revision, fecha_revision, costo, calificacion, observaciones, estado_salud, clinica_id) values ();
-insert into revision (revision_id, mascota_id, numero_revision, fecha_revision, costo, calificacion, observaciones, estado_salud, clinica_id) values ();
-insert into revision (revision_id, mascota_id, numero_revision, fecha_revision, costo, calificacion, observaciones, estado_salud, clinica_id) values ();
+exec p_mascota_va_al_medico(1, 8, add_months(sysdate, -3), 3, 'Infección en el oído severa.', 900, 'Aplicar medicamento cada 8 horas.');
+exec p_mascota_va_al_medico(1, 8, add_months(sysdate, -2), 7, 'Infección en el oído moderada.', 900, 'Ha mejorado bastante, aplicar medicamento cada 2 dias.');
+exec p_mascota_va_al_medico(1, 8, add_months(sysdate, -1), 10, 'Buen estado de salud.', 300, 'Se ha recuperado de la infeccion.');
+exec p_mascota_va_al_medico(4, 30, add_months(sysdate, -2), 10, 'Buen estado de salud.', 500, 'Comer carne y verduras.');
+exec p_mascota_va_al_medico(4, 30, add_months(sysdate, -1), 10, 'Buen estado de salud.', 500, 'Ha mejorado su consumo de carne.');
+exec p_mascota_va_al_medico(17, 291, to_date('14/04/2019', 'dd/mm/yyyy'), 1, 'Ha fallecido.', 500, 'Lo balaceraon los municipales :(');
 
 COMMIT;
