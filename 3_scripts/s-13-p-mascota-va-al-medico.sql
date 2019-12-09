@@ -55,7 +55,8 @@ begin
 
         select count(*) into v_tiene_dueno
         from mascota 
-        where mascota_id = p_mascota_id;
+        where mascota_id = p_mascota_id
+         and dueno_cliente_id is not null;
 
         if v_tiene_dueno = 1 then 
             V_STATUS_NUEVO := 5;
