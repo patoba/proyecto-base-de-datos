@@ -7,7 +7,7 @@ after insert or update on mascota
 for each row
 declare
     v_blob blob;
-    v_nombre_directorio varchar2(30) := 'DATA_DIR';
+    v_nombre_directorio varchar2(30) := 'DATA_SERVER';
     v_nombre_archivo varchar2(30);
     v_file utl_file.FILE_TYPE;
     v_buffer_size number := 32767;
@@ -16,7 +16,7 @@ declare
     v_longitud number(10,0);
 begin
     v_blob := :new.foto;
-    v_nombre_archivo := ' m_' || to_char(:new.mascota_id) || '.jpg';
+    v_nombre_archivo := 'm_' || to_char(:new.mascota_id) || '.jpg';
     v_file := utl_file.fopen(upper(v_nombre_directorio), v_nombre_archivo, 'wb', v_buffer_size);
 
     v_longitud := dbms_lob.getlength(v_blob);
