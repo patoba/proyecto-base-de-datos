@@ -23,4 +23,12 @@ grant rol_admin to fb_proy_admin;
 
 grant rol_invitado to fb_proy_invitado;
 
+prompt permisos para directorios
+
+create or replace directory data_dir as '/tmp/bd';
+grant read,write on directory data_dir to fb_proy_admin;
+
+Prompt creando objeto DATA_LOGOS
+create or replace directory data_server as '/tmp/server/';
+grant read,write on directory data_server to fb_proy_admin;
 prompt s-01-usuarios.sql se ejecuto a la perfeccion

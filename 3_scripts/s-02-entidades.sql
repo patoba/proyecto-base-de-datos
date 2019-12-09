@@ -257,7 +257,7 @@ CREATE TABLE revision(
     costo number(7, 2) not null, 
     calificacion number(2, 0) not null,
     observaciones varchar2(40) not null,
-    estado_salud varchar2(40) not null,
+    estado_salud varchar2(40) default '' not null,
     clinica_id number(10, 0) not null,
     constraint revision_calificacion_ck 
     check (calificacion between 1 and 10),

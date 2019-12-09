@@ -3475,6 +3475,13 @@ insert into seleccion (seleccion_id, cliente_id, mascota_id, fecha_seleccion, es
 insert into seleccion (seleccion_id, cliente_id, mascota_id, fecha_seleccion, es_ganador, descripcion) values (seleccion_seq.nextval, dame_cliente(), 62, (select fecha_status from mascota where mascota_id=62), 0, 'Es buena persona.');
 
 -- REVISION
-insert into revision () values ();
+insert into revision (revision_id, mascota_id, numero_revision, fecha_revision, costo, calificacion, observaciones, estado_salud, clinica_id) values ();
+insert into revision (revision_id, mascota_id, numero_revision, fecha_revision, costo, calificacion, observaciones, estado_salud, clinica_id) values ();
+insert into revision (revision_id, mascota_id, numero_revision, fecha_revision, costo, calificacion, observaciones, estado_salud, clinica_id) values ();
+insert into revision (revision_id, mascota_id, numero_revision, fecha_revision, costo, calificacion, observaciones, estado_salud, clinica_id) values ();
+insert into revision (revision_id, mascota_id, numero_revision, fecha_revision, costo, calificacion, observaciones, estado_salud, clinica_id) values ();
+insert into revision (revision_id, mascota_id, numero_revision, fecha_revision, costo, calificacion, observaciones, estado_salud, clinica_id) values ();
+insert into revision (revision_id, mascota_id, numero_revision, fecha_revision, costo, calificacion, observaciones, estado_salud, clinica_id) values ();
+insert into revision (revision_id, mascota_id, numero_revision, fecha_revision, costo, calificacion, observaciones, estado_salud, clinica_id) values ();
 
 COMMIT;
