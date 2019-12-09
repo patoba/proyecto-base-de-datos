@@ -4,7 +4,7 @@
 
 prompt conectando como usuario sys
 
-connect sys/sys as sysdba
+connect sys/system as sysdba
 
 prompt Verificando usuario administrador
 declare
@@ -79,6 +79,9 @@ prompt creando secuencias
 prompt creando indices
 
 @s-06-indices.sql
+
+prompt creando sinonimos
+@s-07-sinonimos.sql
 
 prompt creando triggers
 
