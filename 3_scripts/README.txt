@@ -51,6 +51,12 @@ CODIGO DE ERRORES:
 
 -20007 => s-11-tr-valida-seleccion.sql
     Mascota no disponible para adopcion
+
+-20008 => s-13-p-entrar-seleccion.sql
+    Username no existe
+
+-20009 => s-13-p-entrar-seleccion.sql
+    FOLIO no existe
 6)
 -20200 =>
     Falla un trigger

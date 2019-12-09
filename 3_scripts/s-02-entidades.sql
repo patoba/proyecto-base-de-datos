@@ -2,10 +2,6 @@
 --@Fecha creación: 01/12/2019
 --@Descripción: DDL empleado para crear las tablas del caso de estudio
 
---actualizar mascotas quie posean dueno
---quitar descripcion muerte a mascotas no muertas
---default null
-
 prompt creando tabla empleado
 create table empleado (
     empleado_id number(10,0)
@@ -291,4 +287,22 @@ CREATE TABLE seleccion(
     CHECK (es_ganador in (0, 1))
 );
 
+prompt creando tabla seleccion respaldo
+
+CREATE TABLE seleccion_respaldo(
+    seleccion_respaldo_id number(10, 0) primary key,
+    mascota_id number(10, 0) not null,
+    cliente_id number(10, 0) not null,
+    fecha_seleccion date default sysdate not null ,
+    descripcion varchar2(40) not null,
+    es_ganador number(1, 0) default 0 not null,
+    CONSTRAINT SELECCION_respaldo_cliente_id_fk 
+    FOREIGN KEY (cliente_id)
+    REFERENCES cliente(cliente_id),
+    CONSTRAINT SELECCION_respaldo_mascota_id_fk 
+    FOREIGN KEY (mascota_id)
+    REFERENCES mascota(mascota_id),
+    CONSTRAINT SELECCION_respaldo_es_ganador_CHK
+    CHECK (es_ganador in (0, 1))
+);
 prompt s-02-entidades.sql se ejecuto a la perfeccion
