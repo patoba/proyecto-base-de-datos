@@ -257,6 +257,7 @@ CREATE TABLE revision(
     costo number(7, 2) not null, 
     calificacion number(2, 0) not null,
     observaciones varchar2(40) not null,
+    estado_salud varchar2(40) not null,
     clinica_id number(10, 0) not null,
     constraint revision_calificacion_ck 
     check (calificacion between 1 and 10),
@@ -275,7 +276,7 @@ CREATE TABLE seleccion(
     mascota_id number(10, 0) not null,
     cliente_id number(10, 0) not null,
     fecha_seleccion date default sysdate not null ,
-    descripcion varchar2(40) not null,
+    descripcion varchar2(40),
     es_ganador number(1, 0) default 0 not null,
     CONSTRAINT SELECCION_cliente_id_fk 
     FOREIGN KEY (cliente_id)

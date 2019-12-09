@@ -97,6 +97,8 @@ prompt creando trigger validar-empleado
 @s-11-tr-validar-empleado.sql
 prompt creando trigger valida-seleccion
 @s-11-tr-valida-seleccion.sql
+prompt creando trigger respaldo seleccion
+@s-11-tr-respaldo-seleccion.sql
 
 prompt creando procedimientos
 

@@ -12,7 +12,7 @@ declare
     v_mascota_disponible_para_adopcion number(1, 0);
     v_status_disponible_para_adopcion status_mascota.status_mascota_id%type;
 begin
-    v_status_disponible_para_adopcion := 2;
+    v_status_disponible_para_adopcion := 4;
     select count(*) into v_mascota_disponible_para_adopcion
     from mascota 
     where mascota_id = :new.mascota_id
