@@ -124,11 +124,13 @@ prompt funcion dame_gerente_sin_centro_operativo
 @s-15-fx-dame-gerente-sin-centro-operativo.sql
 prompt funcion dame_oficina_no_asignada
 @s-15-fx-dame-oficina-no-asignada.sql
+prompt funcion dame foto
+@s-15-fx-dame-foto.sql
 
 prompt cargando triggers para guardar lob en servidor
 @s-17-lob-guarda-centro-refugio-logo.sql
---@s-17-lob-guarda-firma-electronica.sql
---@s-17-lob-guarda-mascota-foto.sql
+@s-17-lob-guarda-firma-electronica.sql
+@s-17-lob-guarda-mascota-foto.sql
 
 prompt realizando carga inicial
 

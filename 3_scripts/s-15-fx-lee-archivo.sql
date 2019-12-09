@@ -8,16 +8,8 @@ create or replace directory data_dir as '/tmp/bd';
 grant read,write on directory data_dir to fb_proy_admin;
 
 Prompt creando objeto DATA_LOGOS
-create or replace directory data_logos as './server/logos';
-grant read,write on directory data_logos to fb_proy_admin;
-
-Prompt creando objeto DATA_FIRMAS
-create or replace directory data_firmas as './server/firmas';
-grant read,write on directory data_firmas to fb_proy_admin;
-
-Prompt creando objeto DATA_MASCOTAS
-create or replace directory data_mascotas as './server/mascotas';
-grant read,write on directory data_mascotas to fb_proy_admin;
+create or replace directory data_server as '/tmp/server/';
+grant read,write on directory data_server to fb_proy_admin;
 
 Prompt conectando como usuario fb_proy_admin
 connect fb_proy_admin/asdf
