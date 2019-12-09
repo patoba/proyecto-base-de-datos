@@ -104,7 +104,7 @@ CREATE TABLE oficina(
     centro_operativo_id number(10, 0) 
     constraint oficina_pk primary key,
     rfc varchar2(13) not null,
-    firma_eletronica blob default empty_blob() not null,
+    firma_electronica blob default empty_blob() not null,
     responsable_legal varchar2(40),
     CONSTRAINT O_rfc_CHK
     CHECK (rfc like '_____________'),

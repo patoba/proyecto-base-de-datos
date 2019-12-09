@@ -2034,27 +2034,27 @@ insert into centro_operativo (centro_operativo_id, codigo, nombre, direccion, la
 PROMPT 'insertando datos oficina'
 
 --este lleva firma electronica blob
-insert into oficina (centro_operativo_id, rfc, responsable_legal) values (dame_oficina_no_asignada(), complemento('381-52-6960', 13), 'Queenie Karpets');
-insert into oficina (centro_operativo_id, rfc, responsable_legal) values (dame_oficina_no_asignada(), complemento('785-36-6314', 13), 'Brendis Wickmann');
-insert into oficina (centro_operativo_id, rfc, responsable_legal) values (dame_oficina_no_asignada(), complemento('755-41-0685', 13), 'Marya Spurman');
-insert into oficina (centro_operativo_id, rfc, responsable_legal) values (dame_oficina_no_asignada(), complemento('248-23-8019', 13), 'Celle Abate');
-insert into oficina (centro_operativo_id, rfc, responsable_legal) values (dame_oficina_no_asignada(), complemento('528-06-1970', 13), 'Angie Hallbord');
-insert into oficina (centro_operativo_id, rfc, responsable_legal) values (dame_oficina_no_asignada(), complemento('644-18-5973', 13), 'Zebulen Scougal');
-insert into oficina (centro_operativo_id, rfc, responsable_legal) values (dame_oficina_no_asignada(), complemento('391-25-2481', 13), 'Sofia Domenc');
-insert into oficina (centro_operativo_id, rfc, responsable_legal) values (dame_oficina_no_asignada(), complemento('727-88-0295', 13), 'Sonia Gallanders');
-insert into oficina (centro_operativo_id, rfc, responsable_legal) values (dame_oficina_no_asignada(), complemento('193-85-4341', 13), 'Rozele McLennan');
-insert into oficina (centro_operativo_id, rfc, responsable_legal) values (dame_oficina_no_asignada(), complemento('560-53-0111', 13), 'Devinne Rois');
-insert into oficina (centro_operativo_id, rfc, responsable_legal) values (dame_oficina_no_asignada(), complemento('769-84-5568', 13), 'Devan Phare');
+insert into oficina (centro_operativo_id, rfc, firma_electronica, responsable_legal) values (dame_oficina_no_asignada(), complemento('381-52-6960', 13), lee_archivo('office_signature_1.key'),'Queenie Karpets');
+insert into oficina (centro_operativo_id, rfc, firma_electronica, responsable_legal) values (dame_oficina_no_asignada(), complemento('785-36-6314', 13), lee_archivo('office_signature_2.key'),'Brendis Wickmann');
+insert into oficina (centro_operativo_id, rfc, firma_electronica, responsable_legal) values (dame_oficina_no_asignada(), complemento('755-41-0685', 13), lee_archivo('office_signature_3.key'),'Marya Spurman');
+insert into oficina (centro_operativo_id, rfc, firma_electronica, responsable_legal) values (dame_oficina_no_asignada(), complemento('248-23-8019', 13), lee_archivo('office_signature_4.key'),'Celle Abate');
+insert into oficina (centro_operativo_id, rfc, firma_electronica, responsable_legal) values (dame_oficina_no_asignada(), complemento('528-06-1970', 13), lee_archivo('office_signature_5.key'),'Angie Hallbord');
+insert into oficina (centro_operativo_id, rfc, firma_electronica, responsable_legal) values (dame_oficina_no_asignada(), complemento('644-18-5973', 13), lee_archivo('office_signature_6.key'),'Zebulen Scougal');
+insert into oficina (centro_operativo_id, rfc, firma_electronica, responsable_legal) values (dame_oficina_no_asignada(), complemento('391-25-2481', 13), lee_archivo('office_signature_7.key'),'Sofia Domenc');
+insert into oficina (centro_operativo_id, rfc, firma_electronica, responsable_legal) values (dame_oficina_no_asignada(), complemento('727-88-0295', 13), lee_archivo('office_signature_8.key'),'Sonia Gallanders');
+insert into oficina (centro_operativo_id, rfc, firma_electronica, responsable_legal) values (dame_oficina_no_asignada(), complemento('193-85-4341', 13), lee_archivo('office_signature_9.key'),'Rozele McLennan');
+insert into oficina (centro_operativo_id, rfc, firma_electronica, responsable_legal) values (dame_oficina_no_asignada(), complemento('560-53-0111', 13), lee_archivo('office_signature_10.key'),'Devinne Rois');
+insert into oficina (centro_operativo_id, rfc, firma_electronica, responsable_legal) values (dame_oficina_no_asignada(), complemento('769-84-5568', 13), lee_archivo('office_signature_11.key'),'Devan Phare');
 
 
 -- CENTRO REFUGIO
 
 PROMPT 'insertando datos refugio'
 
-insert into centro_refugio (centro_operativo_id, numero_registro, capacidad, lema) values (dame_centro_refugio_no_asignada(), 7974776319, 781, 'Secured' );
-insert into centro_refugio (centro_operativo_id, numero_registro, capacidad, lema) values (dame_centro_refugio_no_asignada(), 1036816544, 22, 'Exclusive' );
-insert into centro_refugio (centro_operativo_id, numero_registro, capacidad, lema) values (dame_centro_refugio_no_asignada(), 4922061820, 304, '6th generation' );
-insert into centro_refugio (centro_operativo_id, numero_registro, capacidad, lema) values (dame_centro_refugio_no_asignada(), 3339455803, 395, 'focus group' );
+insert into centro_refugio (centro_operativo_id, numero_registro, capacidad, lema, logo) values (dame_centro_refugio_no_asignada(), 7974776319, 781, 'Secured', lee_archivo('cr_1.jpg') );
+insert into centro_refugio (centro_operativo_id, numero_registro, capacidad, lema, logo) values (dame_centro_refugio_no_asignada(), 1036816544, 22, 'Exclusive', lee_archivo('cr_2.jpg') );
+insert into centro_refugio (centro_operativo_id, numero_registro, capacidad, lema, logo) values (dame_centro_refugio_no_asignada(), 4922061820, 304, '6th generation', lee_archivo('cr_3.jpg') );
+insert into centro_refugio (centro_operativo_id, numero_registro, capacidad, lema, logo) values (dame_centro_refugio_no_asignada(), 3339455803, 395, 'focus group', lee_archivo('cr_4.jpg') );
 
 -- CLINICA
 
