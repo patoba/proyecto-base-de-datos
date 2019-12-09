@@ -9,9 +9,9 @@ Prompt Prueba 1.
 prompt Insertando un registro valido (empleado que es veterinario)
 Prompt ========================================
 
-insert into empleado (empleado_id, nombre, apellido_paterno, apellido_materno, username, constrasena, email, sueldo_mensual, fecha_ingreso, es_administrativo, es_veterinario, es_gerente) values (-1, 'Eula', 'Newell', 'Chesterton', 'asdasdasd', 'FBiF6ouSTi', 'echestertonrr@+wired.com', 30880.26, sysdate, 0, 1, 0);
+insert into empleado (empleado_id, username, curp, email, contrasena, nombre, apellido_paterno, apellido_materno, sueldo_mensual, fecha_ingreso, es_administrativo, es_veterinario, es_gerente) values (-1, 'prueba01', 'prt-01-7321', 'prueba01@artisteer.com', 'ymRHPL9r', 'Georges', 'Alenov', 'Raine', 53251.68, to_date('13/11/2019', 'dd/mm/yyyy'), 1, 1, 1);
 
-insert into mascota (mascota_id, folio, nombre, fecha_nacimiento, fecha_ingreso, fecha_status, origen, estado_salud,  tipo_mascota_id, status_mascota_id, veterinario_empleado_id, centro_refugio_id, padre_mascota_id, madre_mascota_id, dueno_cliente_id, donador_cliente_id) values (-1, '8HSPnsymmmmm', 'Océanne', sysdate - 2, sysdate - 1, sysdate, 'A', 'Prolong labor NOS-deliv',  11, 5, -1, null, null, null, 642, null);
+insert into mascota (mascota_id, folio, nombre, fecha_nacimiento, fecha_ingreso, fecha_status, origen, estado_salud, tipo_mascota_id, status_mascota_id, descripcion_muerte, veterinario_empleado_id, centro_refugio_id, padre_mascota_id, madre_mascota_id, dueno_cliente_id, donador_cliente_id) values (-1, complemento('pr01', 8), 'Marie-ève', to_date('30/10/2016', 'dd/mm/yyyy'), to_date( '09/12/2017', 'dd/mm/yyyy'), to_date('26/06/2019', 'dd/mm/yyyy'), 'A', 'tibia', 30, 1, null, -1, null, null, null, null, null);
 
 
 Prompt OK, prueba 1 exitosa.
@@ -28,13 +28,12 @@ declare
 	v_mensaje varchar2(1000);
 begin
 
-	insert into empleado (empleado_id, nombre, apellido_paterno, apellido_materno, username, constrasena, email, sueldo_mensual, fecha_ingreso, es_administrativo, es_veterinario, es_gerente) values (-2, 'Eula', 'Newell', 'Chesterton', 'asdasdasd', 'FBiF6ouSTi', 'echestertonrr@+wired.com', 30880.26, sysdate, 1, 0, 0);
+	insert into empleado (empleado_id, username, curp, email, contrasena, nombre, apellido_paterno, apellido_materno, sueldo_mensual, fecha_ingreso, es_administrativo, es_veterinario, es_gerente) values (-2, 'prueba02', 'prt-02-7321', 'prueba02@artisteer.com', 'ymRHPL9r', 'Georges', 'Alenov', 'Raine', 53251.68, to_date('13/11/2019', 'dd/mm/yyyy'), 1, 0, 1);
 
-    insert into mascota (mascota_id, folio, nombre, fecha_nacimiento, fecha_ingreso, fecha_status, origen, estado_salud,  tipo_mascota_id, status_mascota_id, veterinario_empleado_id, centro_refugio_id, padre_mascota_id, madre_mascota_id, dueno_cliente_id, donador_cliente_id) values (-1, '8HSPnsymñmmm', 'Océanne', sysdate - 2, sysdate - 1, sysdate, 'A', 'Prolong labor NOS-deliv',  11, 5, -2, null, null, null, 642, null);
-
+	insert into mascota (mascota_id, folio, nombre, fecha_nacimiento, fecha_ingreso, fecha_status, origen, estado_salud, tipo_mascota_id, status_mascota_id, descripcion_muerte, veterinario_empleado_id, centro_refugio_id, padre_mascota_id, madre_mascota_id, dueno_cliente_id, donador_cliente_id) values (-2,complemento('pr02', 8), 'Marie-ève', to_date('30/10/2016', 'dd/mm/yyyy'), to_date( '09/12/2017', 'dd/mm/yyyy'), to_date('26/06/2019', 'dd/mm/yyyy'), 'A', 'tibia', 30, 1, null, -2, null, null, null, null, null);
 	
 	raise_application_error(-20200,
-		' ERROR: Centro operativo que no es oficina insertado.'||
+		' ERROR: Se realizo el insert.'||
 		' El trigger no está funcionando correctamente');
 exception
 	when others then

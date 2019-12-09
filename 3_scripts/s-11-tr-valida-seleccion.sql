@@ -23,14 +23,12 @@ begin
 
     select count(*) into v_existe_anterior
     from seleccion
-    where cliente_id = :new.cliente_id
-      and mascota_id = :new.mascota_id;
+    where mascota_id = :new.mascota_id;
 
     if v_existe_anterior >= 1 then
-        select (sysdate - max(fecha_seleccion)) into v_num_dias
+        select (:new.fecha_seleccion - max(fecha_seleccion)) into v_num_dias
         from seleccion
-        where cliente_id = :new.cliente_id
-          and mascota_id = :new.mascota_id;
+        where mascota_id = :new.mascota_id;
     else 
         v_num_dias := 0;
     end if;

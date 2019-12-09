@@ -10,12 +10,12 @@ prompt Insertando un registro valido (centro operativo que es clinica)
 Prompt ========================================
 
 
-insert into empleado (empleado_id, username, curp, email, contrasena, nombre, apellido_paterno, apellido_materno, sueldo_mensual, fecha_ingreso, es_administrativo, es_veterinario, es_gerente) values (-1, 'graine0', '484-63-7381', 'graine0@artisteer.com', 'ymRHPL9r', 'Georges', 'Alenov', 'Raine', 53251.68, to_date('13/11/2019', 'dd/mm/yyyy'), 1, 1, 1);
+insert into empleado (empleado_id, username, curp, email, contrasena, nombre, apellido_paterno, apellido_materno, sueldo_mensual, fecha_ingreso, es_administrativo, es_veterinario, es_gerente) values (-1, 'prueba01', 'prt-01-7321', 'prueba01@artisteer.com', 'ymRHPL9r', 'Georges', 'Alenov', 'Raine', 53251.68, to_date('13/11/2019', 'dd/mm/yyyy'), 1, 1, 1);
 
-insert into  centro_operativo(centro_operativo_id, codigo, nombre, direccion, latitud, longitud, es_oficina, es_clinica, es_centro_refugio, gerente_empleado_id) values (-1, 'HBI12', 'Hanesbrands Inc.', '782 Spaight Hill', -13.9705607, -71.8326771, 0, 1, 0, -1);
+
+insert into  centro_operativo(centro_operativo_id, codigo, nombre, direccion, latitud, longitud, es_oficina, es_clinica, es_centro_refugio, gerente_empleado_id) values (-1, 'prt01', 'Hanesbrands Inc.', '782 Spaight Hill', -13.9705607, -71.8326771, 0, 1, 0, -1);
 
 insert into clinica (centro_operativo_id, hora_inicio, hora_fin, telefono_atencion, telefono_emergencia) values (-1, to_date('09:32:45', 'hh24:mi:ss'), to_date('21:57:51', 'hh24:mi:ss'), '+257 (509) 877-2486', '+880 (966) 215-2469');
-
 
 Prompt OK, prueba 1 exitosa.
 
@@ -31,11 +31,13 @@ declare
 	v_mensaje varchar2(1000);
 begin
 
-	insert into empleado (empleado_id, username, curp, email, contrasena, nombre, apellido_paterno, apellido_materno, sueldo_mensual, fecha_ingreso, es_administrativo, es_veterinario, es_gerente) values (-2, 'graine0123', '284-63-7381', 'grai23ne0@artisteer.com', 'ymRHPL9r', 'Georges', 'Alenov', 'Raine', 53251.68, to_date('13/11/2019', 'dd/mm/yyyy'), 1, 1, 1);
+	insert into empleado (empleado_id, username, curp, email, contrasena, nombre, apellido_paterno, apellido_materno, sueldo_mensual, fecha_ingreso, es_administrativo, es_veterinario, es_gerente) values (-2, 'prueba02', 'prt-02-7321', 'prueba02@artisteer.com', 'ymRHPL9r', 'Georges', 'Alenov', 'Raine', 53251.68, to_date('13/11/2019', 'dd/mm/yyyy'), 1, 1, 1);
 
-	insert into  centro_operativo(centro_operativo_id, codigo, nombre, direccion, latitud, longitud, es_oficina, es_clinica, es_centro_refugio, gerente_empleado_id) values (-2, '12345', 'Hanesbrands Inc.', '782 Spaight Hill', -13.9705607, -71.8326771, 0, 1, 0, -2);
+	insert into  centro_operativo(centro_operativo_id, codigo, nombre, direccion, latitud, longitud, es_oficina, es_clinica, es_centro_refugio, gerente_empleado_id) values (-2, 'prt02', 'Hanesbrands Inc.', '782 Spaight Hill', -13.9705607, -71.8326771, 0, 0, 1, -2);
+
 
 	insert into clinica (centro_operativo_id, hora_inicio, hora_fin, telefono_atencion, telefono_emergencia) values (-2, to_date('09:32:45', 'hh24:mi:ss'), to_date('21:57:51', 'hh24:mi:ss'), '+257 (509) 877-2486', '+880 (966) 215-2469');
+
 
 	raise_application_error(-20200,
 		' ERROR: Centro operativo que no es oficina insertado.'||
