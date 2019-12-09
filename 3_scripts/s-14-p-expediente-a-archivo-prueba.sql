@@ -15,7 +15,7 @@ declare
 	v_mensaje varchar2(1000);
 begin
     p_expediente_a_archivo(mascota_id);
-        dbms_output.put_line('OK, prueba 1 Exitosa.');
+    dbms_output.put_line('OK, prueba 1 Exitosa.');
 
     -- if v_insercion_correcta = 1 then
     -- else
