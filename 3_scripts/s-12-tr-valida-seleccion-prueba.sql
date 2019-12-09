@@ -259,7 +259,7 @@ Prompt Prueba 7.
 prompt Insertando a seleccion un cliente que posee mas de 5 mascotas y una mascota x (la mascota no se encuentra disponible para adopcion)
 Prompt ========================================
 
-insert into mascota (mascota_id, folio, nombre, fecha_nacimiento, fecha_ingreso, fecha_status, origen, estado_salud,  tipo_mascota_id, status_mascota_id, veterinario_empleado_id) values (-12, 'prueba12', 'Océanne', sysdate - 2, sysdate - 1, sysdate, 'A', 'Prolong labor NOS-deliv',  1, 3, -1);
+
 
 declare
 	v_codigo number;

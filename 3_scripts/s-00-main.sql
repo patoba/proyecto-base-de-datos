@@ -4,7 +4,7 @@
 
 prompt conectando como usuario sys
 
-connect sys/system as sysdba
+connect sys/sys as sysdba
 
 !mkdir /tmp/bd
 !mkdir /tmp/server
@@ -102,6 +102,8 @@ prompt creando triggers
 
 prompt creando trigger borra_cliente
 @s-11-tr-borra-cliente.sql
+prompt historico 
+@s-11-tr-historico.sql
 prompt creando trigger respaldo_seleccion
 @s-11-tr-respaldo-seleccion.sql
 prompt creando trigger valida-centro-refugio
