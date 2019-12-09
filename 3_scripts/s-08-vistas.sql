@@ -6,11 +6,11 @@
 -- Crearemos una vista para ver tanto a los clientes como a los empleados sin su contrasena
 create or replace view v_usuarios (
     nombre, apellido_paterno, apellido_materno, email
-) as select nombre, apellido_paterno, apellido_materno, email
-from empleado
+) as select e.nombre, e.apellido_paterno, e.apellido_materno, e.email
+from empleado e
 union
-select nombre, apellido_paterno, apellido materno, email
-from cliente;
+select c.nombre, c.apellido_paterno, c.apellido_materno, c.email
+from cliente c;
 
 -- Vista que muestra las mascotas que estan disponibles para adopción
 create or replace view v_mascota (
@@ -27,8 +27,8 @@ create or replace view v_cliente_ganador (
 ) as select c.nombre as nombre_cliente, c.apellido_paterno, c.apellido_materno, c.username, 
     m.folio, m.nombre as nombre_mascota, s.fecha_seleccion 
 from cliente c
-join seleccion s
+join seleccion_respaldo s
 on c.cliente_id = s.cliente_id
 join mascota m 
-on m.mascota_id = s.seleccion_id
+on m.mascota_id = s.seleccion_respaldo_id
 where s.es_ganador = 1;

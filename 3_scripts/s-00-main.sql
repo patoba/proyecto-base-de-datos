@@ -83,6 +83,9 @@ prompt creando indices
 prompt creando sinonimos
 @s-07-sinonimos.sql
 
+prompt creando vistas
+@s-08-vistas.sql
+
 prompt creando triggers
 
 prompt creando trigger valida-centro-refugio
