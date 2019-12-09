@@ -1,19 +1,5 @@
 set serveroutput on
 
-Prompt conectando como sys
-connect sys/system as sysdba
-
-Prompt creando objeto DATA_DIR
-create or replace directory data_dir as '/tmp/bd';
-grant read,write on directory data_dir to fb_proy_admin;
-
-Prompt creando objeto DATA_LOGOS
-create or replace directory data_server as '/tmp/server/';
-grant read,write on directory data_server to fb_proy_admin;
-
-Prompt conectando como usuario fb_proy_admin
-connect fb_proy_admin/asdf
-
 create or replace function lee_archivo(p_nombre_archivo in varchar2) 
 return blob is
     v_bfile bfile;

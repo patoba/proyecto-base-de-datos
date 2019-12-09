@@ -57,6 +57,10 @@ CODIGO DE ERRORES:
 
 -20009 => s-13-p-entrar-seleccion.sql
     FOLIO no existe
+
+-20010 => s-13-p-entrar-seleccion.sql
+    mascota_id no existe
+
 6)
 -20200 =>
     Falla un trigger

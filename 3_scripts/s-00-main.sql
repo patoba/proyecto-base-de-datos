@@ -4,7 +4,7 @@
 
 prompt conectando como usuario sys
 
-connect sys/system as sysdba
+connect sys/sys as sysdba
 
 prompt Verificando usuario administrador
 declare
@@ -134,4 +134,4 @@ prompt cargando triggers para guardar lob en servidor
 
 prompt realizando carga inicial
 
-@s-09-carga-inicial.sql
+--@s-09-carga-inicial.sql
