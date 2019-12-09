@@ -4,7 +4,7 @@
 
 prompt conectando como usuario sys
 
-connect sys/system as sysdba
+connect sys/sys as sysdba
 
 prompt Verificando usuario administrador
 declare

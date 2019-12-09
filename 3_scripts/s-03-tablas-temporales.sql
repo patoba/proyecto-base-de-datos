@@ -1,29 +1,19 @@
 --@Autores: Emanuel Flores, Adolfo Barrero
 --@Fecha creación: 01/12/2019
---@Descripción: DDL empleado para crear las tablas del caso de estudio
+--@Situacion: Se desea visualizar los datos de los veterinarios, las clinica, y los datos de las revisiones de una determinada mascota
+--@Descripción: Incluye tabla temporal que permite visualizar esa informacion
 
-
---Se desea ver todos los datos de los clientes que seleccionaron a una mascota
-
-CREATE GLOBAL TEMPORARY TABLE seleccion_cliente(
-    seleccion_id number(10, 0) not null,
-    mascota_id number(10, 0) not null,
-    cliente_id number(10, 0) not null,
-    fecha_seleccion date not null,
-    descripcion varchar2(40) not null,
-    username varchar2(20) not null,
-    email varchar2(50) not null,
-    nombre varchar2(20) not null,
-    apellido_paterno varchar2(20) not null,
-    apellido_materno varchar2(20) not null,
-    direccion varchar2(40) not null,
-    ocupacion varchar2(40) not null
-    CONSTRAINT SELECCION_cliente_id_fk 
-    FOREIGN KEY (cliente_id)
-    REFERENCES cliente(cliente_id),
-    CONSTRAINT SELECCION_mascota_id_fk 
-    FOREIGN KEY (mascota_id)
-    REFERENCES mascota(mascota_id),
-    CONSTRAINT SELECCION_es_ganador_CHK
-    CHECK es_ganador in (0, 1)
-) on COMMIT PRESERVE ROWS;
+CREATE GLOBAL TEMPORARY TABLE revision_mascota
+ON COMMIT PRESERVE ROWS
+AS
+SELECT r.numero_revision,m.folio,m.nombre as nombre_mascota,m.fecha_nacimiento,
+       m.fecha_ingreso,m.origen,m.descripcion_muerte,
+       tm.nombre as nombre_tipo_mascota, sm.clave,
+       co.nombre as nombre_clinica, c.telefono_atencion,r.fecha_revision,r.costo,
+       r.calificacion,r.estado_salud,r.observaciones
+from revision r, mascota m, clinica c, centro_operativo co, tipo_mascota tm, status_mascota sm
+where r.mascota_id = m.mascota_id 
+  and c.centro_operativo_id = r.clinica_id
+  and co.centro_operativo_id = c.centro_operativo_id
+  and tm.tipo_mascota_id = m.tipo_mascota_id
+  and sm.status_mascota_id = m.status_mascota_id;
